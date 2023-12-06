@@ -51,7 +51,7 @@
 	--fs-body: clamp(var(--fs-200), 1.25vw, var(--fs-250));
 	--fs-input: clamp(var(--fs-100), 1vw, var(--fs-200));
 	--fs-nav-links: var(--fs-250);
-	--fs-banner-title: clamp(var(--fs-575), 5.5vw, var(--fs-800));
+	--fs-hero-title: clamp(var(--fs-575), 5.5vw, var(--fs-800));
 	--fs-section-title: var(--fs-350);
 	--fs-section-phrase: clamp(var(--fs-575), 4.5vw, var(--fs-700));
 	--fs-picture-info: var(--fs-100);
@@ -333,8 +333,8 @@ a:focus-visible {
 	font-weight: var(--fw-bold);
 }
 
-.fs-banner-title {
-	font-size: var(--fs-banner-title);
+.fs-hero-title {
+	font-size: var(--fs-hero-title);
 }
 .fs-section-title {
 	font-size: var(--fs-section-title);
