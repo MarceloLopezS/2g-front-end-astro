@@ -1,0 +1,71 @@
+---
+
+import "./Statistics.css";
+import Carousel from "../../Carousel/Carousel.astro";
+import CarouselSlide from "../../Carousel/CarouselSlide/CarouselSlide.astro";
+
+---
+
+<section class='about-us__statistics | ff-primary text-neutral-100 bg-primary-400'>
+  <div class='about-us__statistics-indicator | fs-carousel-indicator fw-light'>
+    <Carousel section={'about-us'}>
+      <CarouselSlide>
+        <div>
+          <p>01</p>
+        </div>
+      </CarouselSlide>
+      <CarouselSlide>
+        <div>
+          <p>02</p>
+        </div>
+      </CarouselSlide>
+      <CarouselSlide>
+        <div>
+          <p>03</p>
+        </div>
+      </CarouselSlide>
+    </Carousel>
+  </div>
+  <div class='about-us__statistics-percentaje | fs-carousel-number fw-bold'>
+    <Carousel section={'about-us'}>
+      <CarouselSlide>
+        <div>
+          <p>90<span class='text-accent-400'>%</span></p>
+        </div>
+      </CarouselSlide>
+      <CarouselSlide>
+        <div>
+          <p>60<span class='text-accent-400'>%</span></p>
+        </div>
+      </CarouselSlide>
+      <CarouselSlide>
+        <div>
+          <p>30<span class='text-accent-400'>%</span></p>
+        </div>
+      </CarouselSlide>
+    </Carousel>
+  </div>
+  <div class='about-us__statistics-description | fs-carousel-description fw-light'>
+    <Carousel section={'about-us'}>
+      <CarouselSlide>
+      <div>
+        <p>De nuestros proyectos son bajo el esquema diseño/construcción</p>
+      </div>
+    </CarouselSlide>
+    <CarouselSlide>
+      <div>
+        <p>De nuestros proyectos son levantamientos topográficos</p>
+      </div>
+    </CarouselSlide>
+    <CarouselSlide>
+      <div>
+        <p>De nuestros proyectos son saneamientos físico legal de predios</p>
+      </div>
+    </CarouselSlide>
+    </Carousel>
+  </div>
+</section>
+
+<script>
+  
+</script>
