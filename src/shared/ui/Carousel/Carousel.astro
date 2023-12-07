@@ -1,17 +1,15 @@
 ---
-
-import "./Carousel.css"
+import "./Carousel.css";
 
 interface Props {
   section: string;
 }
 
 const { section } = Astro.props;
-
 ---
 
-<div class='carousel' data-section={section}>
-  <ul class='carousel__track'>
+<div class="carousel" data-section={section}>
+  <ul class="carousel__track">
     <slot />
   </ul>
 </div>
