@@ -1,23 +1,23 @@
 .about-us {
-	display: grid;
-	place-items: center;
-	background-color: var(--clr-neutral-100);
-	isolation: isolate;
+  display: grid;
+  place-items: center;
+  background-color: var(--clr-neutral-100);
+  isolation: isolate;
 }
 
 @media (min-width: 69em) {
-	.about-us {
-		grid-template-columns: auto max(36.5vw, 30rem);
-		grid-template-rows: repeat(2, 50%);
-	}
+  .about-us {
+    grid-template-columns: auto max(36.5vw, 30rem);
+    grid-template-rows: repeat(2, 50%);
+  }
 }
 
 @media (min-width: 121em) {
-	.about-us {
-		grid-template-columns: auto max(36.577%, 30rem);
-	}
+  .about-us {
+    grid-template-columns: auto max(36.577%, 30rem);
+  }
 
-	.about-us__main-picture::before {
-		inset: -22.327% 0 0 0;
-	}
+  .about-us__main-picture::before {
+    inset: -22.327% 0 0 0;
+  }
 }

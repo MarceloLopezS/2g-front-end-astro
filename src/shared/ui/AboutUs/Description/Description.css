@@ -1,81 +1,81 @@
 .about-us__description {
-	position: relative;
-	max-width: 45ch;
-	margin-block: var(--size-450);
+  position: relative;
+  max-width: 45ch;
+  margin-block: var(--size-450);
 }
 
 .about-us__description button {
-	padding-block: var(--size-50);
-	margin-top: var(--size-150);
+  padding-block: var(--size-50);
+  margin-top: var(--size-150);
 }
 
 .about-us__description .main,
 .about-us__description .complement {
-	display: grid;
-	background-color: var(--clr-neutral-100);
+  display: grid;
+  background-color: var(--clr-neutral-100);
 }
 
 .about-us__description .main p:last-of-type {
-	padding-top: var(--size-150);
+  padding-top: var(--size-150);
 }
 
 .about-us__description .main {
-	opacity: 0;
-	transition: opacity 200ms ease-in;
+  opacity: 0;
+  transition: opacity 200ms ease-in;
 }
 
 .about-us__description .main[data-show] {
-	opacity: 1;
+  opacity: 1;
 }
 
 .about-us__description .complement {
-	position: absolute;
-	padding-block: var(--size-100);
-	top: 0;
-	left: 0;
-	opacity: 0;
-	transform: translateX(-100%);
-	transition-property:
-		opacity,
-		transform,
-		-webkit-transform;
-	transition-duration: 200ms, 500ms, 500ms;
-	transition-timing-function: ease-in;
+  position: absolute;
+  padding-block: var(--size-100);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition-property:
+    opacity,
+    transform,
+    -webkit-transform;
+  transition-duration: 200ms, 500ms, 500ms;
+  transition-timing-function: ease-in;
 }
 
 .about-us__description .complement[data-show] {
-	opacity: 1;
-	transform: translateX(0);
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .about-us__description .complement h3:first-of-type {
-	padding-top: 0;
+  padding-top: 0;
 }
 
 .about-us__description .complement h3 {
-	padding-block: var(--size-75) var(--size-25);
+  padding-block: var(--size-75) var(--size-25);
 }
 
 @media (max-width: 69em) {
-	.about-us__description .complement {
-		top: -9%;
-	}
+  .about-us__description .complement {
+    top: -9%;
+  }
 }
 
 @media (min-width: 69em) {
-	.about-us__description {
-		max-width: 50ch;
-		grid-row: span 2;
-	}
+  .about-us__description {
+    max-width: 50ch;
+    grid-row: span 2;
+  }
 
-	.about-us__description .main,
-	.about-us__description .complement {
-		display: flex;
-		flex-direction: column;
-	}
+  .about-us__description .main,
+  .about-us__description .complement {
+    display: flex;
+    flex-direction: column;
+  }
 
-	.about-us__description button {
-		align-self: flex-start;
-		padding-inline: var(--size-250);
-	}
+  .about-us__description button {
+    align-self: flex-start;
+    padding-inline: var(--size-250);
+  }
 }
