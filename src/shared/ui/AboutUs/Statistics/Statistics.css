@@ -1,0 +1,61 @@
+.about-us__statistics {
+	display: none;
+}
+
+@media (min-width: 69em) {
+	.about-us__statistics {
+		display: grid;
+		grid-template-columns: 7% 7% 7% 50% auto;
+		grid-template-rows: 20% 5% 34% 21% 10%;
+		grid-template-areas:
+			". . . . ."
+			". indicator . percentaje percentaje"
+			". . . percentaje percentaje"
+			". . . description ."
+			". . . . .";
+		width: 100%;
+		height: 100%;
+	}
+
+	.about-us__statistics-indicator {
+		position: relative;
+		grid-area: indicator;
+		width: 100%;
+		height: 100%;
+	}
+
+	.about-us__statistics-indicator::before {
+		position: absolute;
+		content: "";
+		height: 2px;
+		width: var(--size-300);
+		transform: rotate(-45deg);
+		top: var(--size-100);
+		background-color: var(--clr-neutral-100);
+	}
+
+	.about-us__statistics-indicator::after {
+		position: absolute;
+		font-family: var(--ff-primary);
+		font-weight: var(--fw-light);
+		content: "03";
+		top: var(--size-100);
+		left: var(--size-100);
+	}
+
+	.about-us__statistics-percentaje {
+		grid-area: percentaje;
+		width: 100%;
+		height: 100%;
+		border-left: 2px solid var(--clr-neutral-100);
+		padding-left: var(--size-150);
+	}
+
+	.about-us__statistics-description {
+		grid-area: description;
+		width: 100%;
+		height: 100%;
+		border-left: 2px solid var(--clr-neutral-100);
+		padding-left: var(--size-150);
+	}
+}
