@@ -1,0 +1,50 @@
+---
+import "./ServicesGrid.css";
+import Card from "./Card/Card.astro";
+
+import levantamientoTopograficoImg from "../../../assets/images/levantamiento-topografico.webp";
+import construccionCivilImg from "../../../assets/images/construccion-civil.webp";
+import movimientoTierrasImg from "../../../assets/images/movimiento-tierras.webp";
+import sistemasDrenajeImg from "../../../assets/images/sistemas-drenaje.webp";
+import sistemasBombeoImg from "../../../assets/images/evaluacion-sistemas-bombeo.webp";
+import saneamientoPrediosImg from "../../../assets/images/saneamiento-fisico-legal-predios.webp";
+---
+
+<section class="services__grid">
+  <Card
+    mediaSrc={levantamientoTopograficoImg.src}
+    mediaAltText={"Levantamiento topográfico"}
+    cardTitle={"Levantamiento Topográfico"}
+    cardDescription={"Garantizamos mediciones precisas y detalladas, empleando fotogrametría y geodesia."}
+  />
+  <Card
+    mediaSrc={construccionCivilImg.src}
+    mediaAltText={"Construcción Civil"}
+    cardTitle={"Construcción Civil"}
+    cardDescription={"Ofrecemos planificación, cimentación, edificación, instalación de tuberías, electricidad y remodelación."}
+  />
+  <Card
+    mediaSrc={movimientoTierrasImg.src}
+    mediaAltText={"Movimiento de tierras"}
+    cardTitle={"Movimiento de tierras"}
+    cardDescription={"Ejecutamos con eficacia proyectos de calidad, gracias a nuestro personal, equipos y maquinaria."}
+  />
+  <Card
+    mediaSrc={sistemasDrenajeImg.src}
+    mediaAltText={"Sistemas de drenaje"}
+    cardTitle={"Sistemas de drenaje"}
+    cardDescription={"Diseñamos e instalamos sistemas de drenaje y almacenamiento con calidad garantizada."}
+  />
+  <Card
+    mediaSrc={sistemasBombeoImg.src}
+    mediaAltText={"Sistemas de bombeo"}
+    cardTitle={"Sistemas de bombeo"}
+    cardDescription={"Realizamos evaluación, instalación y mantenimiento de sistemas completos de bombeo de agua en tajos abiertos y subterráneos."}
+  />
+  <Card
+    mediaSrc={saneamientoPrediosImg.src}
+    mediaAltText={"Saneamiento físico legal de predios"}
+    cardTitle={"Saneamiento físico legal de predios"}
+    cardDescription={"Brindamos asesoría técnico legal en todo el proceso de saneamiento, asegurando su inversión."}
+  />
+</section>

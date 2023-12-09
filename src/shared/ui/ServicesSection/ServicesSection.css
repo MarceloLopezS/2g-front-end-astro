@@ -1,0 +1,44 @@
+.services {
+  position: relative;
+  display: grid;
+  place-items: center;
+  color: var(--clr-neutral-100);
+  background-image: url(../../assets/images/services-background.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  isolation: isolate;
+}
+
+.services::after {
+  position: absolute;
+  content: "";
+  background-color: var(--clr-bg-sections);
+  inset: 0;
+  z-index: -1;
+}
+
+@media (min-width: 69em) {
+  .services {
+    grid-template-columns: auto max(36.5vw, 30rem);
+    grid-template-areas: "services-grid services-text";
+  }
+}
+
+@media (min-width: 69em) and (max-width: 85.375em) {
+  .services {
+    padding-block: 0;
+  }
+}
+
+@media (min-width: 121em) {
+  .services {
+    grid-template-columns: auto max(36.577%, 30rem);
+  }
+}
+
+@media (orientation: landscape) {
+  .services {
+    padding-block: var(--size-200);
+  }
+}
