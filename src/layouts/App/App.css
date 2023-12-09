@@ -16,11 +16,14 @@
   --clr-invalid: hsl(354, 70%, 54%);
 
   --clr-bg-opacity-100: hsl(212, 70%, 10%, 0.01);
-  --clr-bg-opacity-500: hsl(212, 70%, 10%, 0.55);
+  --clr-bg-opacity-550: hsl(212, 70%, 10%, 0.55);
   --clr-bg-opacity-700: hsl(212, 70%, 10%, 0.7);
-  --clr-bg-opacity-800: hsl(212, 70%, 10%, 0.85);
-  --clr-bg-opacity-850: hsl(212, 70%, 10%, 0.9);
-  --clr-bg-opacity-900: hsl(212, 70%, 10%, 0.95);
+  --clr-bg-opacity-850: hsl(212, 70%, 10%, 0.85);
+  --clr-bg-opacity-900: hsl(212, 70%, 10%, 0.9);
+  --clr-bg-opacity-950: hsl(212, 70%, 10%, 0.95);
+
+  --clr-bg-hero-section: var(--clr-bg-opacity-550);
+  --clr-bg-sections: hsl(212, 70%, 6%, 0.85);
 
   --clr-shadow-900: hsla(0, 0%, 13%, 0.5);
 

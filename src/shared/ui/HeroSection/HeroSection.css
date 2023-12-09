@@ -4,7 +4,7 @@
   width: 100%;
   min-height: max(90vh, 40rem);
   color: var(--clr-neutral-100);
-  background-color: var(--clr-bg-opacity-500);
+  background-color: var(--clr-bg-hero-section);
   position: relative;
   overflow: hidden;
 }
