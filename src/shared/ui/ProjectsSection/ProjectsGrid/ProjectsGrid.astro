@@ -1,0 +1,70 @@
+---
+import "./ProjectsGrid.css";
+import Card from "./Card/Card.astro";
+
+import costaDelSolImg from "../../../assets/images/remodelacion-hotel-costa-del-sol.webp";
+import proyectoSanJoseImg from "../../../assets/images/proyecto-inmobiliario.webp";
+import estacionMeteorologicaImg from "../../../assets/images/estacion-meteorologica.webp";
+import sistemaBombeoImg from "../../../assets/images/diseño-sistema-rebombeo.webp";
+---
+
+<section class="projects__grid">
+  <Card
+    mediaSrc={costaDelSolImg.src}
+    mediaAltText="Remodelación Costa del Sol Cajamarca - Wyndham"
+    projectType="Diseño - Construcción"
+    projectEmployer="Costa del Sol Wyndham"
+    projectStudyCaseParagraphs={[
+      "Remodelación general de piso salón y habitaciones del Hotel Costa del Sol Wyndham - Cajamarca",
+    ]}
+    projectDescriptionParagraphs={[
+      "La empresa hotelera Costa del Sol - Wyndham, es reconocida en la ciudad de Cajamarca y a nivel nacional. Cuenta con 11 sucursales, siendo una de las cadenas hoteleras más importantes del país.",
+      "El proyecto consistió en la remodelación de espacios interiores del hotel, realizándose trabajos de: instalación del piso vinil, pintado de interiores, trabajos eléctricos y acabados finales.",
+      "Este proyecto fue entregado cumpliendo los estándares de calidad, seguridad y medio ambiente; los cuales son transcendentales para la satisfacción de nuestros clientes.",
+    ]}
+  />
+  <Card
+    mediaSrc={proyectoSanJoseImg.src}
+    mediaAltText="Proyecto Inmobiliario Vica World Global S.A.C"
+    projectType="Saneamiento físico legal de predios"
+    projectEmployer="Vica World Global S.A.C"
+    projectStudyCaseParagraphs={[
+      "Levantamiento topográfico",
+      "Movimiento de tierras",
+      "Proyecto Inmobiliario Residencial San José - Namora - Cajamarca",
+    ]}
+    projectDescriptionParagraphs={[
+      "Vica Work Global S.A.C es una empresa inmobiliaria reconocida en la ciudad de Cajamarca, con inicio de actividades en el año 2014.",
+      "El proyecto consistió en el acondicionamiento del área para una próxima residencial, realizándose trabajos de: levantamiento topográfico, preparación del terreno, corte, relleno y trazado, demarcación de áreas comunes e instalación de un portón de ingreso.",
+      "El cliente expresó su satisfacción con los trabajos y el servicio realizado, reconociendo nuestro compromiso y trayectoria.",
+    ]}
+  />
+  <Card
+    mediaSrc={estacionMeteorologicaImg.src}
+    mediaAltText="Cerco perimétrico Estación Meteorológica Automática Chugur"
+    projectType="Construcción"
+    projectEmployer="Servicio Nacional Meteorología e Hidrología"
+    projectStudyCaseParagraphs={[
+      "Reubicación, colocación de cerco perimétrico y mantenimiento preventivo de la Estación Meteorológica Automática Chugur - Cajamarca",
+    ]}
+    projectDescriptionParagraphs={[
+      "El SENAMHI es un organismo público especializado  en las áreas de meteorología, hidrología, agrometeorología y asuntos ambientales.",
+      "El proyecto consistió en la reubicación de una torre de alta tensión y la instalación de un cerco perimétrico. Se llevaron a cabo trabajos de alto riego (trabajos en altura), pero siempre cumpliendo con los estándares de seguridad por parte de nuestros trabajadores.",
+      "El cliente quedó satisfecho con el trabajo final, siendo un referente importante en nuestra cartera.",
+    ]}
+  />
+  <Card
+    mediaSrc={sistemaBombeoImg.src}
+    mediaAltText="Sistema de rebombeo - Minera Yanaocha"
+    projectType="Diseño"
+    projectEmployer="Minera Yanacocha"
+    projectStudyCaseParagraphs={[
+      "Evaluación del sistema de tanques de rebombeo de agua en el tajo tapado Oeste de Minera Yanacocha - Cajamarca",
+    ]}
+    projectDescriptionParagraphs={[
+      "Minera Yanacocha es una mina aurífera considerada la más grande de América del Sur y la segunda a nivel mundial.",
+      "El proyecto tuvo la finalidad de evaluar el funcionamiento hidráulico del sistema de tanques de rebombeo del tajo (Tapado Oeste), haciendo uso de información topográfica y cartográfica. Se obtuvieron referencias a tiempos inoperativos y, en consecuencia, presentamos una alternativa de solución de ingeniería, obteniendo importantes mejoras en la optimización de drenaje.",
+      "El proyecto generó la satisfacción nuestra y del cliente, considerándose un éxito por ambas partes.",
+    ]}
+  />
+</section>

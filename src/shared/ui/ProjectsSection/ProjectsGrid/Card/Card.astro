@@ -1,0 +1,40 @@
+---
+import "./Card.css";
+
+interface Props {
+  mediaSrc: string;
+  mediaAltText: string;
+  projectType: string;
+  projectEmployer: string;
+  projectStudyCaseParagraphs: Array<string>;
+  projectDescriptionParagraphs: Array<string>;
+}
+
+const {
+  mediaSrc,
+  mediaAltText,
+  projectType,
+  projectEmployer,
+  projectStudyCaseParagraphs,
+  projectDescriptionParagraphs,
+} = Astro.props;
+---
+
+<div class="card" data-section="projects">
+  <div class="card__media">
+    <img loading="lazy" src={mediaSrc} alt={mediaAltText} />
+  </div>
+  <div class="card__body main" data-show>
+    <p class="highlighted">{projectType}</p>
+    <h3>{projectEmployer}</h3>
+    <p>Caso de estudio</p>
+    {projectStudyCaseParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+    <button type="button" class="btn" data-bg="primary"
+      >Más sobre el proyecto</button
+    >
+  </div>
+  <div class="card__body complement | text-align-justify">
+    {projectDescriptionParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+    <button type="button" class="btn" data-bg="primary">Atrás</button>
+  </div>
+</div>

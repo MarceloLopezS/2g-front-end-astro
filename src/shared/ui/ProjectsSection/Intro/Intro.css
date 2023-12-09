@@ -1,0 +1,23 @@
+section.projects__intro {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding-block: var(--size-400);
+  isolation: isolate;
+}
+
+section.projects__intro > div {
+  max-width: 45ch;
+}
+
+section.projects__intro > div:last-child p:last-child {
+  padding-top: var(--size-150);
+}
+
+@media (min-width: 69em) {
+  .projects__intro {
+    width: 100%;
+    grid-template-columns: repeat(2, 50%);
+    padding-block: var(--size-800);
+  }
+}

@@ -1,0 +1,25 @@
+section.projects {
+  position: relative;
+  display: grid;
+  background-image: url(../../assets/images/projects-background.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-origin: center;
+  background-attachment: fixed;
+  isolation: isolate;
+  background-color: var(--clr-accent-800);
+}
+
+section.projects::after {
+  position: absolute;
+  content: "";
+  background-color: var(--clr-bg-sections);
+  inset: 0;
+  z-index: -1;
+}
+
+@media (min-width: 69em) {
+  section.projects {
+    padding-bottom: min(8vw, var(--size-800));
+  }
+}
