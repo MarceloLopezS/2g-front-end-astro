@@ -127,6 +127,6 @@
   }
 
   .card[data-section="projects"]:hover .card__media::after {
-    background-color: var(--clr-bg-opacity-800);
+    background-color: var(--clr-bg-opacity-850);
   }
 }
