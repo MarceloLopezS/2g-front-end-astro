@@ -1,0 +1,23 @@
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14.5rem, 1fr));
+  gap: 0.15rem;
+  place-items: center;
+}
+
+@media (min-width: 69em) {
+  .services__grid {
+    width: 100%;
+    gap: var(--size-50);
+    padding: var(--size-800) var(--size-600);
+    grid-area: services-grid;
+  }
+}
+
+@media (min-width: 69em) and (max-width: 85.375em) {
+  .services__grid {
+    gap: 0.2rem;
+    padding: 0 var(--size-200);
+    grid-area: services-grid;
+  }
+}

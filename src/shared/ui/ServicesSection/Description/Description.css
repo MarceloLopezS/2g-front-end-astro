@@ -1,0 +1,11 @@
+.services__description {
+  max-width: 45ch;
+  padding-block: var(--size-400);
+}
+
+@media (min-width: 69em) {
+  .services__text {
+    max-width: 45ch;
+    grid-area: services-text;
+  }
+}
