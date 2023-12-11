@@ -1,0 +1,15 @@
+---
+import "./FormSection.css";
+import ContactForm from "./ContactForm/ContactForm.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<section class="contact-us__form-container container">
+  <p class="contact-us__info-title">{title}</p>
+  <ContactForm />
+</section>

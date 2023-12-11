@@ -1,0 +1,33 @@
+---
+import "./InfoSection.css";
+import InfoField from "./InfoField/InfoField.astro";
+
+interface Props {
+  title: string;
+  highlightText: string;
+}
+
+const { title, highlightText } = Astro.props;
+---
+
+<section class="contact-us__info container">
+  <h2 class="fs-section-title highlighted text-neutral-900">
+    {title}
+  </h2>
+  <p class="section-primary-text highlighted text-primary-400">
+    {highlightText}
+  </p>
+  <InfoField fieldTitle="Dirección:">
+    <p>Jr. San Sebastián 557 - Urb. Casurco - Cajamarca - Cajamarca</p>
+  </InfoField>
+  <InfoField fieldTitle="Teléfonos:">
+    <p><a href="tel:+51966869663">+51 966 869 663</a></p>
+    <p><a href="tel:+51940221260">+51 940 221 260</a></p>
+    <p><a href="tel:+51924674701">+51 924 674 701</a></p>
+  </InfoField>
+  <InfoField fieldTitle="Correo:">
+    <a href="mailto:consultas@2gserviciosgenerales.com">
+      consultas@2gserviciosgenerales.com
+    </a>
+  </InfoField>
+</section>

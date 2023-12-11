@@ -1,0 +1,19 @@
+---
+import "./InputGroup.css";
+
+interface Props {
+  label: string;
+  labelFor: string;
+}
+
+const { label, labelFor } = Astro.props;
+---
+
+<div class="contact-us__form-group">
+  <label class="contact-us__form-label | text-form-label" for={labelFor}
+    >{label}</label
+  >
+  <div class="contact-us__input-container">
+    <slot />
+  </div>
+</div>
