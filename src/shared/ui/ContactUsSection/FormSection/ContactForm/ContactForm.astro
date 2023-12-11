@@ -1,0 +1,65 @@
+---
+import "./ContactForm.css";
+import CustomSelect from "../../../CustomSelect/CustomSelect.astro";
+import InputGroup from "./InputGroup/InputGroup.astro";
+import Loader from "../../../Loader/Loader.astro";
+---
+
+<form class="contact-us__form">
+  <InputGroup
+    label="Selecciona un servicio de interés"
+    labelFor="contact-us__service"
+  >
+    <div class="contact-us__select-container">
+      <CustomSelect
+        selectElementId="contact-us__service"
+        optionsArray={[
+          "-",
+          "Construcción",
+          "Levantamiento topográfico",
+          "Movimiento de tierras",
+          "Saneamiento físico legal de predios",
+          "Sistemas de bombeo",
+          "Sistemas de drenaje",
+        ]}
+      />
+    </div>
+  </InputGroup>
+  <InputGroup label="Nombre completo" labelFor="contact-us__name">
+    <input
+      id="contact-us__name"
+      name="contact-us__name"
+      type="text"
+      placeholder="Por favor escribe tu nombre completo"
+    />
+  </InputGroup>
+  <InputGroup label="Empresa" labelFor="contact-us__company">
+    <input
+      id="contact-us__company"
+      name="contact-us__company"
+      type="text"
+      placeholder="Por favor escribe el nombre de tu empresa"
+    />
+  </InputGroup>
+  <InputGroup label="Ciudad" labelFor="contact-us__city">
+    <input
+      id="contact-us__city"
+      name="contact-us__city"
+      type="text"
+      placeholder="Por favor escribe la ciudad donde te ubicas"
+    />
+  </InputGroup>
+  <InputGroup label="Mensaje" labelFor="contact-us__message">
+    <textarea
+      id="contact-us__message"
+      name="contact-us__message"
+      placeholder="Por favor escribe tu mensaje"></textarea>
+  </InputGroup>
+  <div class="contact-us__action-container">
+    <button type="submit" class="btn" data-bg="primary">Enviar</button>
+    <div class="contact-us__response-container">
+      <Loader />
+      <div class="contact-us__response"></div>
+    </div>
+  </div>
+</form>

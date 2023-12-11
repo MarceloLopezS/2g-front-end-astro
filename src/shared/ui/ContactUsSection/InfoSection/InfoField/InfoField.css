@@ -1,0 +1,7 @@
+.contact-us__field {
+  padding-top: var(--size-100);
+}
+
+.contact-us__field-title {
+  font-weight: var(--fw-regular);
+}

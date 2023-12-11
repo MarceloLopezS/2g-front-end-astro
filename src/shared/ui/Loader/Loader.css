@@ -1,0 +1,116 @@
+.loader {
+  opacity: 0;
+  transition: opacity 200ms ease-in;
+}
+
+.loader[data-show] {
+  position: absolute;
+  display: inline-block;
+  opacity: 1;
+  width: 4px;
+  aspect-ratio: 1;
+  color: var(--clr-primary-400);
+  box-shadow:
+    -8px -8px 0 4px,
+    -8px -8px 0 4px,
+    -8px -8px 0 4px,
+    -8px -8px 0 4px;
+  top: 50%;
+  left: 4.25%;
+  transform: translateY(-50%);
+  animation: loader-38 6s infinite;
+}
+
+@keyframes square-composition-rotation {
+  0% {
+    box-shadow:
+      -8px -8px 0 4px,
+      -8px -8px 0 4px,
+      -8px -8px 0 4px,
+      -8px -8px 0 4px;
+  }
+  8.33% {
+    box-shadow:
+      -8px -8px 0 4px,
+      8px -8px 0 4px,
+      8px -8px 0 4px,
+      8px -8px 0 4px;
+  }
+  16.66% {
+    box-shadow:
+      -8px -8px 0 4px,
+      8px -8px 0 4px,
+      8px 8px 0 4px,
+      8px 8px 0 4px;
+  }
+  24.99% {
+    box-shadow:
+      -8px -8px 0 4px,
+      8px -8px 0 4px,
+      8px 8px 0 4px,
+      -8px 8px 0 4px;
+  }
+  33.32% {
+    box-shadow:
+      -8px -8px 0 4px,
+      8px -8px 0 4px,
+      8px 8px 0 4px,
+      -8px -8px 0 4px;
+  }
+  41.65% {
+    box-shadow:
+      8px -8px 0 4px,
+      8px -8px 0 4px,
+      8px 8px 0 4px,
+      8px -8px 0 4px;
+  }
+  49.98% {
+    box-shadow:
+      8px 8px 0 4px,
+      8px 8px 0 4px,
+      8px 8px 0 4px,
+      8px 8px 0 4px;
+  }
+  58.31% {
+    box-shadow:
+      -8px 8px 0 4px,
+      -8px 8px 0 4px,
+      8px 8px 0 4px,
+      -8px 8px 0 4px;
+  }
+  66.64% {
+    box-shadow:
+      -8px -8px 0 4px,
+      -8px -8px 0 4px,
+      8px 8px 0 4px,
+      -8px 8px 0 4px;
+  }
+  74.97% {
+    box-shadow:
+      -8px -8px 0 4px,
+      8px -8px 0 4px,
+      8px 8px 0 4px,
+      -8px 8px 0 4px;
+  }
+  83.3% {
+    box-shadow:
+      -8px -8px 0 4px,
+      8px 8px 0 4px,
+      8px 8px 0 4px,
+      -8px 8px 0 4px;
+  }
+  91.63% {
+    box-shadow:
+      -8px -8px 0 4px,
+      -8px 8px 0 4px,
+      -8px 8px 0 4px,
+      -8px 8px 0 4px;
+  }
+  100% {
+    box-shadow:
+      -8px -8px 0 4px,
+      -8px -8px 0 4px,
+      -8px -8px 0 4px,
+      -8px -8px 0 4px;
+  }
+}

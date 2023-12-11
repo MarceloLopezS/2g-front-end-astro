@@ -1,0 +1,54 @@
+.contact-us__select-container {
+  position: relative;
+  padding-block: var(--size-75);
+}
+
+.contact-us__select-container.invalid span {
+  color: var(--clr-invalid);
+}
+
+.contact-us__select-container.invalid span::before {
+  background-color: var(--clr-invalid);
+  transform: scaleY(1);
+}
+
+.contact-us__select-container.invalid span::after {
+  border-top-color: var(--clr-invalid);
+}
+
+.contact-us__action-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--size-100);
+  width: 100%;
+  margin-top: var(--size-50);
+}
+
+.contact-us__response-container {
+  position: relative;
+}
+
+.contact-us__form button[type="submit"] {
+  font-size: var(--fs-75);
+  padding: var(--size-25) var(--size-250);
+}
+
+.contact-us__response {
+  max-width: 40ch;
+  opacity: 0;
+  font-size: var(--fs-100);
+  font-weight: var(--fw-light);
+  transition: opacity 500ms ease-in;
+  transition-delay: 200ms;
+}
+
+.contact-us__response[data-success] {
+  opacity: 1;
+  color: var(--clr-primary-400);
+}
+
+.contact-us__response[data-danger] {
+  opacity: 1;
+  color: var(--clr-invalid);
+}
