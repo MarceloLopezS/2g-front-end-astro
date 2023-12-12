@@ -1,25 +1,27 @@
 ---
 import "./Navbar.css";
-import brandLogo from "../../assets/images/logo.webp";
-import certificateLogo from "../../assets/images/logo-camara-comercio.webp";
+import brandLogo from "../../../shared/assets/images/logo.webp";
+import certificateLogo from "../../../shared/assets/images/logo-camara-comercio.webp";
+
+import { CLASSES, IDS } from "../config/DOMAttributes";
 ---
 
-<header class="navbar">
-  <div class="container navbar__container">
+<header class={CLASSES.NAVBAR}>
+  <div class=`${CLASSES.NAV_CONTAINER} | container`>
     <img
-      class="navbar__certificate"
+      class={CLASSES.CERTIFICATE_LOGO}
       src={certificateLogo.src}
       alt="Logo Cámara de Comercio y Producción Cajamarca"
     />
-    <img class="navbar__brand" src={brandLogo.src} alt="2G Logo" />
+    <img class={CLASSES.BRAND_LOGO} src={brandLogo.src} alt="2G Logo" />
     <button
-      class="navbar__mobile-menu-toggle"
-      aria-controls="navbar__primary-navigation"
+      class={CLASSES.TOGGLE_BUTTON}
+      aria-controls={IDS.NAV_LINKS}
       aria-expanded="false"
     >
       <svg
-        class="navbar__icon"
-        id="navbar__drop"
+        class={CLASSES.NAV_ICON}
+        id={IDS.NAV_EXPAND_ICON}
         data-visible
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
@@ -31,8 +33,8 @@ import certificateLogo from "../../assets/images/logo-camara-comercio.webp";
         ></path>
       </svg>
       <svg
-        class="navbar__icon"
-        id="navbar__close"
+        class={CLASSES.NAV_ICON}
+        id={IDS.NAV_CLOSE_ICON}
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
         viewBox="0 0 16 16"
@@ -45,8 +47,8 @@ import certificateLogo from "../../assets/images/logo-camara-comercio.webp";
     </button>
     <nav>
       <ul
-        id="navbar__primary-navigation"
-        class="navbar__links | ff-primary fw-light"
+        id={IDS.NAV_LINKS}
+        class={`${CLASSES.NAV_LINKS} | ff-primary fw-light`}
         aria-label="Navegación primaria"
       >
         <li>

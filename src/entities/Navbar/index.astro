@@ -1,0 +1,36 @@
+---
+import Navbar from "./ui/Navbar.astro";
+---
+
+<Navbar />
+<script>
+  import { getDomElement } from "../../shared/utils/pure";
+  import {
+    NAVBAR_TOGGLE_BUTTON,
+    NAV_UNORDERED_LIST,
+    NAV_EXPAND_ICON,
+    NAV_CLOSE_ICON,
+  } from "./config/DOMSelectors";
+  import toggleMenu from "./model/toggleMenu";
+
+  const navbarMenuToggler = getDomElement(NAVBAR_TOGGLE_BUTTON);
+  const TOGGLE_MENU_SELECTORS = {
+    menuToggleButtonSelector: NAVBAR_TOGGLE_BUTTON,
+    navLinksSelector: NAV_UNORDERED_LIST,
+    navExpandIconSelector: NAV_EXPAND_ICON,
+    navCloseIconSelector: NAV_CLOSE_ICON,
+  };
+  const handleListItemClick = (event) => {
+    const parentElement = event.target.parentElement;
+    if (parentElement.tagName === "LI") {
+      toggleMenu(TOGGLE_MENU_SELECTORS)();
+    }
+  };
+  const navUnorderedList = getDomElement(NAV_UNORDERED_LIST);
+
+  navbarMenuToggler.addEventListener(
+    "click",
+    toggleMenu(TOGGLE_MENU_SELECTORS),
+  );
+  navUnorderedList.addEventListener("click", handleListItemClick);
+</script>
