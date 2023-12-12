@@ -1,6 +1,6 @@
 import { CLASSES, IDS } from "./DOMAttributes";
 
-export const NAVBAR = `header${CLASSES.NAVBAR}`;
+export const NAVBAR = `header.${CLASSES.NAVBAR}`;
 export const CERTIFICATE_LOGO = `img.${CLASSES.CERTIFICATE_LOGO}`;
 export const BRAND_LOGO = `img.${CLASSES.BRAND_LOGO}`;
 export const NAV_UNORDERED_LIST = `#${IDS.NAV_LINKS}`;
