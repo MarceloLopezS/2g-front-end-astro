@@ -16,7 +16,8 @@
 
   .about-us__main-picture::before {
     content: "";
-    background: url(../../../assets/images/about-us-main-picture.webp) no-repeat;
+    background: url(../../../../shared/assets/images/about-us-main-picture.webp)
+      no-repeat;
     background-size: cover;
     background-position: center;
     position: absolute;
