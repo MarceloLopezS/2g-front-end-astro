@@ -11,5 +11,6 @@ export const CLASSES = {
 export const IDS = {
   NAV_EXPAND_ICON: "navbar__expand",
   NAV_CLOSE_ICON: "navbar__close",
-  NAV_LINKS: "navbar__primary-navigation"
+  NAV_LINKS: "navbar__primary-navigation",
+  HERO_SECTION: "home"
 }
