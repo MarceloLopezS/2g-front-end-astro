@@ -1,0 +1,27 @@
+---
+import SectionWrapper from "./ui/SectionWrapper/SectionWrapper.astro";
+import Description from "./ui/Description/Description.astro";
+import MainPicture from "./ui/MainPicture/MainPicture.astro";
+import Statistics from "./ui/Statistics/Statistics.astro";
+---
+
+<SectionWrapper>
+  <Description />
+  <MainPicture />
+  <Statistics />
+</SectionWrapper>
+
+<script>
+  import {
+    DESCRIPTION_SECTION,
+    DESCRIPTION_SLIDE,
+  } from "./config/DOMSelectors";
+  import handleAdditionalDescriptionToggle from "./model/handleAdditionalDescriptionToggle";
+
+  const DESCRIPTION_TOGGLE_SELECTORS = {
+    slidesContainerSelector: DESCRIPTION_SECTION,
+    textSlidesSelector: DESCRIPTION_SLIDE,
+  };
+
+  handleAdditionalDescriptionToggle(DESCRIPTION_TOGGLE_SELECTORS);
+</script>
