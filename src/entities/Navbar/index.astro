@@ -7,14 +7,18 @@ import Navbar from "./ui/Navbar.astro";
 <script>
   import {
     NAVBAR,
+    CERTIFICATE_LOGO,
+    BRAND_LOGO,
     NAVBAR_TOGGLE_BUTTON,
     NAV_UNORDERED_LIST,
     NAV_EXPAND_ICON,
     NAV_CLOSE_ICON,
     NAV_ANCHORS,
+    HERO_SECTION,
   } from "./config/DOMSelectors";
   import enableNavbarMenuToggle from "./model/enableNavbarMenuToggle";
   import displayActiveSection from "./model/displayActiveSection";
+  import controlNavbarDisplay from "./model/controlNavbarDisplay";
 
   const NAV_MENU_SELECTORS = {
     navbarSelector: NAVBAR,
@@ -23,7 +27,14 @@ import Navbar from "./ui/Navbar.astro";
     navExpandIconSelector: NAV_EXPAND_ICON,
     navCloseIconSelector: NAV_CLOSE_ICON,
   };
+  const NAV_DISPLAY_SELECTORS = {
+    heroSectionSelector: HERO_SECTION,
+    navbarSelector: NAVBAR,
+    certificateLogoSelector: CERTIFICATE_LOGO,
+    brandLogoSelector: BRAND_LOGO,
+  };
 
   enableNavbarMenuToggle(NAV_MENU_SELECTORS);
   displayActiveSection(NAV_ANCHORS);
+  controlNavbarDisplay(NAV_DISPLAY_SELECTORS);
 </script>
