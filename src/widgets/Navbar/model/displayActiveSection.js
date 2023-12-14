@@ -17,8 +17,8 @@ const setActiveNavLink = (navAnchorsSelector) => (entries) => {
   })
 }
 
-const displayActiveSection = (navAnchorsSelector) => {
-  const mainSections = getAllDomElements("main > section");
+const displayActiveSection = (navAnchorsSelector, sectionsSelector) => {
+  const mainSections = getAllDomElements(sectionsSelector);
   const sectionsObserver = new IntersectionObserver(
     setActiveNavLink(navAnchorsSelector), MAIN_SECTIONS_OPTIONS
   )
