@@ -15,6 +15,7 @@ import Navbar from "./ui/Navbar.astro";
     NAV_CLOSE_ICON,
     NAV_ANCHORS,
     HERO_SECTION,
+    MAIN_SECTIONS,
   } from "./config/DOMSelectors";
   import enableNavbarMenuToggle from "./model/enableNavbarMenuToggle";
   import displayActiveSection from "./model/displayActiveSection";
@@ -35,6 +36,6 @@ import Navbar from "./ui/Navbar.astro";
   };
 
   enableNavbarMenuToggle(NAV_MENU_SELECTORS);
-  displayActiveSection(NAV_ANCHORS);
+  displayActiveSection(NAV_ANCHORS, MAIN_SECTIONS);
   controlNavbarDisplay(NAV_DISPLAY_SELECTORS);
 </script>
