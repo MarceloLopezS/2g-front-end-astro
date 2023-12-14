@@ -1,6 +1,7 @@
 ---
-import App from "../layouts/App/App.astro";
-import HeaderAndFooter from "../layouts/HeaderAndFooter/HeaderAndFooter.astro";
+import PageTemplate from "../layouts/PageTemplate.astro";
+import Navbar from "../widgets/Navbar/index.astro";
+import Footer from "../widgets/Footer/index.astro";
 import HeroSection from "../shared/ui/HeroSection/HeroSection.astro";
 import AboutSection from "../widgets/AboutSection/index.astro";
 import ServicesSection from "../shared/ui/ServicesSection/ServicesSection.astro";
@@ -12,12 +13,12 @@ const META_DESCRIPTION =
   "Somos 2G SERVICIOS GENERALES S.R.L, una empresa peruana con sede en Cajamarca y dedicada a la ejecución de proyectos de construcción e ingeniería con más de diez años de experiencia en: levantamientos topográficos, movimiento de tierras, saneamiento físico legal de predios, construcción y mantenimiento en interiores y exteriores de edificaciones, trabajos de arco eléctrico y oxicorte, alquiler de maquinaria liviana para construcción y minería, sistemas de rebombeo de aguas superficiales.";
 ---
 
-<App title={META_TITLE} description={META_DESCRIPTION}>
-  <HeaderAndFooter>
-    <HeroSection />
-    <AboutSection />
-    <ServicesSection />
-    <ProjectsSection />
-    <ContactUsSection />
-  </HeaderAndFooter>
-</App>
+<PageTemplate title={META_TITLE} description={META_DESCRIPTION}>
+  <Navbar />
+  <HeroSection />
+  <AboutSection />
+  <ServicesSection />
+  <ProjectsSection />
+  <ContactUsSection />
+  <Footer />
+</PageTemplate>
