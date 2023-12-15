@@ -1,0 +1,84 @@
+---
+interface Props {
+  id?: string;
+  className?: string;
+  direction: "to top" | "to bottom" | "to left" | "to right";
+  autoSlide?: boolean;
+}
+
+const { id, className, direction, autoSlide } = Astro.props;
+const NAV_BUTTON_WIDTH = "5%";
+---
+
+<div
+  id={id}
+  class={className}
+  data-mls-carousel
+  data-direction={direction}
+  data-auto-slide={autoSlide}
+  style="position: relative; width: 100%; height: 100%; overflow: hidden;"
+>
+  <button
+    style=`position: absolute; background-color: transparent; width: ${
+      NAV_BUTTON_WIDTH
+    }; display: ${
+      autoSlide ? "none" : "grid"
+    }${
+      autoSlide ? "" : "; place-items: center"
+    }; top: ${
+      direction === "to top" || direction === "to bottom" ? "0" : "50%"
+    }; left: ${
+      direction === "to top" || direction === "to bottom" ? "50%" : "0"
+    }; rotate: ${
+    direction === "to top" || direction === "to bottom" ? "90deg" : "0deg"
+    }; translate: ${
+      direction === "to top" || direction === "to bottom" ? "-50% 0" : "0 -50%"
+    }; padding: 0; margin: 0; border: 0; outline-color: transparent; z-index: 10; cursor: pointer;`
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+      ></path>
+    </svg>
+  </button>
+  <ul
+    style={`display: flex; width: 100%; height: 100%; flex-flow: ${
+      direction === "to top" || direction === "to bottom" ? "column" : "row"
+    } nowrap; list-style: none; padding: 0; margin: 0;`}
+  >
+    <slot />
+  </ul>
+  <button
+    style=`position: absolute; background-color: transparent; width: ${
+      NAV_BUTTON_WIDTH
+    }; display: ${
+      autoSlide ? "none" : "grid"
+    }${
+      autoSlide ? "" : "; place-items: center"
+    }; bottom: ${
+      direction === "to top" || direction === "to bottom" ? "0" : "50%"
+    }; right: ${
+      direction === "to top" || direction === "to bottom" ? "50%" : "0"
+    }; rotate: ${
+    direction === "to top" || direction === "to bottom" ? "-90deg" : "0deg"
+    }; translate: ${
+      direction === "to top" || direction === "to bottom" ? "50% 0" : "0 50%"
+    }; padding: 0; margin: 0; border: 0; outline-color: transparent; z-index: 10; cursor: pointer;`
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+      ></path>
+    </svg>
+  </button>
+</div>
