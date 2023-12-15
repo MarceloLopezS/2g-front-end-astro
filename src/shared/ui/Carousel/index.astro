@@ -1,0 +1,28 @@
+---
+import Carousel from "./ui/Carousel.astro";
+
+interface Props {
+  id?: string;
+  className?: string;
+  direction: "to top" | "to bottom" | "to left" | "to right";
+  autoSlide?: boolean;
+}
+
+const { id, className, direction, autoSlide } = Astro.props;
+---
+
+<Carousel
+  id={id}
+  className={className}
+  direction={direction}
+  autoSlide={autoSlide}
+>
+  <slot />
+</Carousel>
+
+<script>
+  import { CAROUSEL } from "./config/DOMSelectors";
+  import handleCarousel from "./model/handleCarousel";
+
+  handleCarousel(CAROUSEL);
+</script>

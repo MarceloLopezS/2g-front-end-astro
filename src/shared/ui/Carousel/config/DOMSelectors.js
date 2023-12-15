@@ -1,0 +1,1 @@
+export const CAROUSEL = "div[data-mls-carousel]";
