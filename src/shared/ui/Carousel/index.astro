@@ -5,24 +5,38 @@ interface Props {
   id?: string;
   className?: string;
   direction: "to top" | "to bottom" | "to left" | "to right";
-  autoSlide?: boolean;
+  autoSlideOptions?: {
+    delay: number; // In milliseconds
+  };
+  elementsOnViewport?: number; // Integer
+  navButtonsWidth?: string;
 }
 
-const { id, className, direction, autoSlide } = Astro.props;
+const {
+  id,
+  className,
+  direction,
+  autoSlideOptions,
+  elementsOnViewport,
+  navButtonsWidth,
+} = Astro.props;
 ---
 
 <Carousel
   id={id}
   className={className}
   direction={direction}
-  autoSlide={autoSlide}
+  autoSlideOptions={autoSlideOptions}
+  elementsOnViewport={elementsOnViewport}
+  navButtonsWidth={navButtonsWidth}
 >
   <slot />
 </Carousel>
 
 <script>
   import { CAROUSEL } from "./config/DOMSelectors";
+  import { getAllDomElements } from "../../utils/pure";
   import handleCarousel from "./model/handleCarousel";
 
-  handleCarousel(CAROUSEL);
+  getAllDomElements(CAROUSEL).forEach((carousel) => handleCarousel(carousel));
 </script>

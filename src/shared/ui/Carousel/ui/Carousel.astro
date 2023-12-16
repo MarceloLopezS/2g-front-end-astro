@@ -3,28 +3,39 @@ interface Props {
   id?: string;
   className?: string;
   direction: "to top" | "to bottom" | "to left" | "to right";
-  autoSlide?: boolean;
+  autoSlideOptions?: {
+    delay: number;
+  };
+  elementsOnViewport?: number;
+  navButtonsWidth?: string;
 }
 
-const { id, className, direction, autoSlide } = Astro.props;
-const NAV_BUTTON_WIDTH = "5%";
+const {
+  id,
+  className,
+  direction,
+  autoSlideOptions,
+  elementsOnViewport,
+  navButtonsWidth,
+} = Astro.props;
 ---
 
-<div
+<section
   id={id}
   class={className}
   data-mls-carousel
   data-direction={direction}
-  data-auto-slide={autoSlide}
+  data-auto-slide-delay={autoSlideOptions.delay}
+  data-elements-on-viewport={elementsOnViewport}
   style="position: relative; width: 100%; height: 100%; overflow: hidden;"
 >
   <button
     style=`position: absolute; background-color: transparent; width: ${
-      NAV_BUTTON_WIDTH
+      navButtonsWidth
     }; display: ${
-      autoSlide ? "none" : "grid"
+      autoSlideOptions.delay ? "none" : "grid"
     }${
-      autoSlide ? "" : "; place-items: center"
+      autoSlideOptions.delay ? "" : "; place-items: center"
     }; top: ${
       direction === "to top" || direction === "to bottom" ? "0" : "50%"
     }; left: ${
@@ -35,6 +46,7 @@ const NAV_BUTTON_WIDTH = "5%";
       direction === "to top" || direction === "to bottom" ? "-50% 0" : "0 -50%"
     }; padding: 0; margin: 0; border: 0; outline-color: transparent; z-index: 10; cursor: pointer;`
   >
+    <span class="visually-hidden">Previous</span>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
@@ -46,20 +58,20 @@ const NAV_BUTTON_WIDTH = "5%";
       ></path>
     </svg>
   </button>
-  <ul
-    style={`display: flex; width: 100%; height: 100%; flex-flow: ${
+  <div
+    style={`display: grid; width: 100%; height: 100%; grid-auto-flow: ${
       direction === "to top" || direction === "to bottom" ? "column" : "row"
     } nowrap; list-style: none; padding: 0; margin: 0;`}
   >
     <slot />
-  </ul>
+  </div>
   <button
     style=`position: absolute; background-color: transparent; width: ${
-      NAV_BUTTON_WIDTH
+      navButtonsWidth
     }; display: ${
-      autoSlide ? "none" : "grid"
+      autoSlideOptions.delay ? "none" : "grid"
     }${
-      autoSlide ? "" : "; place-items: center"
+      autoSlideOptions.delay ? "" : "; place-items: center"
     }; bottom: ${
       direction === "to top" || direction === "to bottom" ? "0" : "50%"
     }; right: ${
@@ -70,6 +82,7 @@ const NAV_BUTTON_WIDTH = "5%";
       direction === "to top" || direction === "to bottom" ? "50% 0" : "0 50%"
     }; padding: 0; margin: 0; border: 0; outline-color: transparent; z-index: 10; cursor: pointer;`
   >
+    <span class="visually-hidden">Next</span>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
@@ -81,4 +94,4 @@ const NAV_BUTTON_WIDTH = "5%";
       ></path>
     </svg>
   </button>
-</div>
+</section>
