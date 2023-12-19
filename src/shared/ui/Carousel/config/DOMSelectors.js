@@ -1,1 +1,1 @@
-export const CAROUSEL = "section[data-mls-carousel]";
+export const CAROUSELS = "section[data-mls-carousel]";

@@ -75,11 +75,20 @@ const handleAutoSlide = (
 
   initTrackPosition({ carouselTrack, slides }, { flowAxis, flowDirection });
 
-  const carouselInterval = setInterval(() => {
+  let carouselInterval = setInterval(() => {
     nextAutoSlide({ carouselTrack, slides }, { flowAxis, flowDirection })
   }, delay)
 
-  return carouselInterval
+  return function autoSlideCleanup() {
+    return clearInterval(carouselInterval)
+  }
+}
+
+const isDisplayed = (element) => {
+  if (element.parentElement == null) return true;
+  if (window.getComputedStyle(element).display === "none") return false;
+
+  return isDisplayed(element.parentElement)
 }
 
 const handleCarousel = (carousel) => {
@@ -87,6 +96,8 @@ const handleCarousel = (carousel) => {
     console.warn("Expected a DOM Element to use as Carousel.");
     return
   }
+
+  if (!isDisplayed(carousel)) return;
 
   const carouselTrack = [...carousel.children].filter(
     child => child.tagName !== "BUTTON" && child.tagName === "DIV"
@@ -106,9 +117,11 @@ const handleCarousel = (carousel) => {
   const autoSlideDelay = carousel.getAttribute("data-auto-slide-delay");
 
   setTrackLength({ carouselTrack, slides }, direction);
-  if (autoSlideDelay) handleAutoSlide(
-    { carouselTrack, slides }, { direction, delay: autoSlideDelay }
-  );
+  if (autoSlideDelay) {
+    return handleAutoSlide(
+      { carouselTrack, slides }, { direction, delay: autoSlideDelay }
+    );
+  }
 }
 
 export default handleCarousel

@@ -31,7 +31,7 @@ const {
 >
   <button
     style=`position: absolute; background-color: transparent; width: ${
-      navButtonsWidth
+      navButtonsWidth ?? "5%"
     }; display: ${
       autoSlideOptions.delay ? "none" : "grid"
     }${
@@ -67,7 +67,7 @@ const {
   </div>
   <button
     style=`position: absolute; background-color: transparent; width: ${
-      navButtonsWidth
+      navButtonsWidth ?? "5%"
     }; display: ${
       autoSlideOptions.delay ? "none" : "grid"
     }${
