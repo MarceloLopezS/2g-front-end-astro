@@ -34,9 +34,36 @@ const {
 </Carousel>
 
 <script>
-  import { CAROUSEL } from "./config/DOMSelectors";
+  import { CAROUSELS } from "./config/DOMSelectors";
   import { getAllDomElements } from "../../utils/pure";
   import handleCarousel from "./model/handleCarousel";
 
-  getAllDomElements(CAROUSEL).forEach((carousel) => handleCarousel(carousel));
+  let carouselCleanUps;
+
+  const handleAllCarousels = (carouselsSelector) => {
+    let cleanUpFunctions = [];
+    getAllDomElements(carouselsSelector).forEach((carousel) => {
+      cleanUpFunctions.push(handleCarousel(carousel));
+    });
+
+    return cleanUpFunctions;
+  };
+
+  const resetCarousels = (carouselsSelector) => {
+    return () => {
+      carouselCleanUps.forEach((cleanUp) => {
+        if (typeof cleanUp === "function") cleanUp();
+      });
+      carouselCleanUps = handleAllCarousels(carouselsSelector);
+    };
+  };
+
+  carouselCleanUps = handleAllCarousels(CAROUSELS);
+  const screenOrientation = window.screen.orientation;
+  if (!screenOrientation) {
+    // For Safari
+    window.addEventListener("orientationchange", resetCarousels(CAROUSELS));
+  } else {
+    screenOrientation.addEventListener("change", resetCarousels(CAROUSELS));
+  }
 </script>
