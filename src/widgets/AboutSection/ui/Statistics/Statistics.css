@@ -5,8 +5,8 @@
 @media (min-width: 69em) {
   .about-us__statistics {
     display: grid;
-    grid-template-columns: 7% 7% 7% 50% auto;
-    grid-template-rows: 20% 5% 34% 21% 10%;
+    grid-template-columns: 7% 7% 7% 60% auto;
+    grid-template-rows: 20% 5% 25% 21% auto;
     grid-template-areas:
       ". . . . ."
       ". indicator . percentaje percentaje"
@@ -57,5 +57,12 @@
     height: 100%;
     border-left: 2px solid var(--clr-neutral-100);
     padding-left: var(--size-150);
+  }
+}
+
+@media (min-width: 85em) {
+  .about-us__statistics {
+    grid-template-columns: 7% 7% 7% 50% auto;
+    grid-template-rows: 20% 5% 34% 21% auto;
   }
 }
