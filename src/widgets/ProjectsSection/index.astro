@@ -1,7 +1,25 @@
 ---
+import Intro from "./ui/Intro/Intro.astro";
+import ProjectsGrid from "./ui/ProjectsGrid/ProjectsGrid.astro";
 import ProjectsSection from "./ui/ProjectsSection/ProjectsSection.astro";
 ---
 
-<ProjectsSection />
+<ProjectsSection>
+  <Intro />
+  <ProjectsGrid />
+</ProjectsSection>
 
-<script></script>
+<script>
+  import {
+    PROJECTS_GRID,
+    PROJECT_CARDS,
+    PROJECT_CARD_BODY,
+  } from "./config/DOMSelectors";
+  import handleProjectExtraInfo from "./model/handleProjectExtraInfo";
+
+  handleProjectExtraInfo({
+    projectsGridSelector: PROJECTS_GRID,
+    cardSelector: PROJECT_CARDS,
+    cardBodySelector: PROJECT_CARD_BODY,
+  });
+</script>
