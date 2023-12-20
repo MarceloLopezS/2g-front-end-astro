@@ -3,7 +3,7 @@
   display: grid;
   place-items: center;
   color: var(--clr-neutral-100);
-  background-image: url(../../assets/images/services-background.webp);
+  background-image: url(../../../../shared/assets/images/services-background.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
