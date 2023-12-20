@@ -18,8 +18,19 @@
   z-index: -1;
 }
 
-.hero__bg-img {
+.hero__picture img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: grayscale(1);
   object-fit: cover;
+}
+
+.hero__picture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: hsla(0, 0%, 0%, 0.7);
 }
 
 .hero__front {
