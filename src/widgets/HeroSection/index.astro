@@ -1,0 +1,21 @@
+---
+import HeroSection from "./ui/HeroSection.astro";
+---
+
+<HeroSection />
+
+<script>
+  import { HOME_HERO_PICTURE, HOME_HERO_VIDEO } from "./config/DOMSelectors";
+  import { VIDEO_LOAD_QUERY } from "./config/VideoLoad";
+  import video from "../../shared/assets/videos/hero-video-b&w.mp4";
+  import handleMediaLoad from "./model/handleMediaLoad";
+
+  const mediaLoadArgs = {
+    pictureSelector: HOME_HERO_PICTURE,
+    videoSelector: HOME_HERO_VIDEO,
+    videoSrc: video,
+    videoLoadMediaQuery: VIDEO_LOAD_QUERY,
+  };
+
+  handleMediaLoad(mediaLoadArgs);
+</script>
