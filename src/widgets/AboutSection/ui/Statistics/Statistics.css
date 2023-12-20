@@ -60,7 +60,7 @@
   }
 }
 
-@media (min-width: 85em) {
+@media (min-width: 90em) {
   .about-us__statistics {
     grid-template-columns: 7% 7% 7% 50% auto;
     grid-template-rows: 20% 5% 34% 21% auto;
