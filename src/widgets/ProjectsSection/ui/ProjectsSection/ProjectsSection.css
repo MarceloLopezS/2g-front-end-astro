@@ -1,6 +1,5 @@
 section.projects {
   position: relative;
-  display: grid;
   background-image: url(../../../../shared/assets/images/projects-background.webp);
   background-repeat: no-repeat;
   background-size: cover;

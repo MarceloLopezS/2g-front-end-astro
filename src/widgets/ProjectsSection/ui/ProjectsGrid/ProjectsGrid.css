@@ -1,10 +1,3 @@
-.projects__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(22.5rem, 1fr));
-}
-
-@media (min-width: 69em) {
-  .projects__grid {
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-  }
+.projects__wrapper {
+  max-height: 53rem;
 }
