@@ -15,7 +15,7 @@ section.projects__intro > div:last-child p:last-child {
 }
 
 @media (min-width: 69em) {
-  .projects__intro {
+  section.projects__intro {
     width: 100%;
     grid-template-columns: repeat(2, 50%);
     padding-block: var(--size-800);

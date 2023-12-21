@@ -12,11 +12,11 @@ const toggleProjectExtraInfo = (cardSelector, cardBodySelector) => {
 }
 
 const handleProjectExtraInfo = ({
-  projectsGridSelector,
+  projectsWrapper,
   cardSelector,
   cardBodySelector
 }) => {
-  const projectsGrid = getDomElement(projectsGridSelector);
+  const projectsGrid = getDomElement(projectsWrapper);
 
   projectsGrid.addEventListener(
     "click", toggleProjectExtraInfo(cardSelector, cardBodySelector)

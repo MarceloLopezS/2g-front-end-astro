@@ -11,14 +11,14 @@ import ProjectsSection from "./ui/ProjectsSection/ProjectsSection.astro";
 
 <script>
   import {
-    PROJECTS_GRID,
+    PROJECTS_WRAPPER,
     PROJECT_CARDS,
     PROJECT_CARD_BODY,
   } from "./config/DOMSelectors";
   import handleProjectExtraInfo from "./model/handleProjectExtraInfo";
 
   handleProjectExtraInfo({
-    projectsGridSelector: PROJECTS_GRID,
+    projectsWrapper: PROJECTS_WRAPPER,
     cardSelector: PROJECT_CARDS,
     cardBodySelector: PROJECT_CARD_BODY,
   });
