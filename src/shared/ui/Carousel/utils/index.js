@@ -4,3 +4,11 @@ export const isDisplayed = (element) => {
 
   return isDisplayed(element.parentElement)
 }
+
+export const showButton = (button) => {
+  button.setAttribute("data-show", "")
+}
+
+export const hideButton = (button) => {
+  button.removeAttribute("data-show")
+}

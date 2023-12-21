@@ -1,4 +1,6 @@
 ---
+import "./Carousel.css";
+
 interface Props {
   id?: string;
   className?: string;
@@ -7,17 +9,10 @@ interface Props {
     delay: number;
   };
   maxItemsOnView?: number;
-  navButtonsWidth?: string;
 }
 
-const {
-  id,
-  className,
-  direction,
-  autoSlideOptions,
-  maxItemsOnView,
-  navButtonsWidth,
-} = Astro.props;
+const { id, className, direction, autoSlideOptions, maxItemsOnView } =
+  Astro.props;
 ---
 
 <section
@@ -31,9 +26,7 @@ const {
 >
   <button
     data-previous
-    style=`position: absolute; background-color: transparent; width: ${
-      navButtonsWidth ?? "3%"
-    }; display: ${
+    style=`position: absolute; background-color: transparent; display: ${
       autoSlideOptions?.delay ? "none" : "grid"
     }${
       autoSlideOptions?.delay ? "" : "; place-items: center"
@@ -67,15 +60,13 @@ const {
       direction === "to top" || direction === "to bottom"
         ? "grid-auto-flow: row"
         : null
-    }; nowrap; list-style: none; padding: 0; margin: 0;`}
+    }; nowrap; list-style: none; padding: 0; margin: 0; transition: transform 500ms ease-in-out;`}
   >
     <slot />
   </div>
   <button
     data-next
-    style=`position: absolute; background-color: transparent; width: ${
-      navButtonsWidth ?? "3%"
-    }; display: ${
+    style=`position: absolute; background-color: transparent; display: ${
       autoSlideOptions?.delay ? "none" : "grid"
     }${
       autoSlideOptions?.delay ? "" : "; place-items: center"
