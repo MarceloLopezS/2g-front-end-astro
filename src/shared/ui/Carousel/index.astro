@@ -8,7 +8,7 @@ interface Props {
   autoSlideOptions?: {
     delay: number; // In milliseconds
   };
-  elementsOnViewport?: number; // Integer
+  maxItemsOnView?: number; // Integer
   navButtonsWidth?: string;
 }
 
@@ -17,7 +17,7 @@ const {
   className,
   direction,
   autoSlideOptions,
-  elementsOnViewport,
+  maxItemsOnView,
   navButtonsWidth,
 } = Astro.props;
 ---
@@ -27,7 +27,7 @@ const {
   className={className}
   direction={direction}
   autoSlideOptions={autoSlideOptions}
-  elementsOnViewport={elementsOnViewport}
+  maxItemsOnView={maxItemsOnView}
   navButtonsWidth={navButtonsWidth}
 >
   <slot />

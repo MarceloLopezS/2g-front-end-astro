@@ -6,7 +6,7 @@ interface Props {
   autoSlideOptions?: {
     delay: number;
   };
-  elementsOnViewport?: number;
+  maxItemsOnView?: number;
   navButtonsWidth?: string;
 }
 
@@ -15,7 +15,7 @@ const {
   className,
   direction,
   autoSlideOptions,
-  elementsOnViewport,
+  maxItemsOnView,
   navButtonsWidth,
 } = Astro.props;
 ---
@@ -25,17 +25,18 @@ const {
   class={className}
   data-mls-carousel
   data-direction={direction}
-  data-auto-slide-delay={autoSlideOptions.delay}
-  data-elements-on-viewport={elementsOnViewport}
+  data-auto-slide-delay={autoSlideOptions?.delay}
+  data-max-items-on-view={maxItemsOnView}
   style="position: relative; width: 100%; height: 100%; overflow: hidden;"
 >
   <button
+    data-previous
     style=`position: absolute; background-color: transparent; width: ${
-      navButtonsWidth ?? "5%"
+      navButtonsWidth ?? "3%"
     }; display: ${
-      autoSlideOptions.delay ? "none" : "grid"
+      autoSlideOptions?.delay ? "none" : "grid"
     }${
-      autoSlideOptions.delay ? "" : "; place-items: center"
+      autoSlideOptions?.delay ? "" : "; place-items: center"
     }; top: ${
       direction === "to top" || direction === "to bottom" ? "0" : "50%"
     }; left: ${
@@ -59,25 +60,31 @@ const {
     </svg>
   </button>
   <div
-    style={`display: grid; width: 100%; height: 100%; grid-auto-flow: ${
-      direction === "to top" || direction === "to bottom" ? "column" : "row"
-    } nowrap; list-style: none; padding: 0; margin: 0;`}
+    data-carousel-track
+    style={`width: 100%; height: 100%; display: ${
+      direction === "to top" || direction === "to bottom" ? "grid" : "flex"
+    }; ${
+      direction === "to top" || direction === "to bottom"
+        ? "grid-auto-flow: row"
+        : null
+    }; nowrap; list-style: none; padding: 0; margin: 0;`}
   >
     <slot />
   </div>
   <button
+    data-next
     style=`position: absolute; background-color: transparent; width: ${
-      navButtonsWidth ?? "5%"
+      navButtonsWidth ?? "3%"
     }; display: ${
-      autoSlideOptions.delay ? "none" : "grid"
+      autoSlideOptions?.delay ? "none" : "grid"
     }${
-      autoSlideOptions.delay ? "" : "; place-items: center"
+      autoSlideOptions?.delay ? "" : "; place-items: center"
     }; bottom: ${
       direction === "to top" || direction === "to bottom" ? "0" : "50%"
     }; right: ${
       direction === "to top" || direction === "to bottom" ? "50%" : "0"
     }; rotate: ${
-    direction === "to top" || direction === "to bottom" ? "-90deg" : "0deg"
+    direction === "to top" || direction === "to bottom" ? "-90deg" : "180deg"
     }; translate: ${
       direction === "to top" || direction === "to bottom" ? "50% 0" : "0 50%"
     }; padding: 0; margin: 0; border: 0; outline-color: transparent; z-index: 10; cursor: pointer;`
