@@ -1,5 +1,13 @@
 import { isDomElementNode } from "../../../utils/pure";
+import { isDisplayed } from "../utils";
 import { PROPERTY, DURATION, TIMING_FUNCTION } from "../config/SlideTransition";
+import {
+  XS_BREAKPOINT,
+  S_BREAKPOINT,
+  L_BREAKPOINT,
+  XL_BREAKPOINT,
+  XXL_BREAKPOINT
+} from "../config/ScreenSizeBreakpoints";
 
 const setTrackLength = ({ carouselTrack, slides }, direction) => {
   const totalSlides = slides.length;
@@ -11,7 +19,7 @@ const setTrackLength = ({ carouselTrack, slides }, direction) => {
   }
 }
 
-const initTrackPosition = (
+const initInfiniteTrackPosition = (
   { carouselTrack, slides },
   { flowAxis, flowDirection }
 ) => {
@@ -71,9 +79,11 @@ const handleAutoSlide = (
   const flowAxis = direction === "to top" || direction === "to bottom"
     ? "Y" : "X";
   const flowDirection = direction === "to top" || direction === "to left"
-    ? "-" : "";
+    ? "-" : "+";
 
-  initTrackPosition({ carouselTrack, slides }, { flowAxis, flowDirection });
+  initInfiniteTrackPosition(
+    { carouselTrack, slides }, { flowAxis, flowDirection }
+  );
 
   let carouselInterval = setInterval(() => {
     nextAutoSlide({ carouselTrack, slides }, { flowAxis, flowDirection })
@@ -84,11 +94,72 @@ const handleAutoSlide = (
   }
 }
 
-const isDisplayed = (element) => {
-  if (element.parentElement == null) return true;
-  if (window.getComputedStyle(element).display === "none") return false;
+const setMultiItemTrackLength = (
+  { carouselTrack, slides },
+  { flowAxis, slidesInView }
+) => {
+  const totalSlides = slides.length;
+  const itemPercentage = 100 / slidesInView;
 
-  return isDisplayed(element.parentElement)
+  if (flowAxis === "X") {
+    carouselTrack.style.width = `${totalSlides * itemPercentage}%`;
+    [...slides].forEach(
+      slide => slide.style.width = `${100 / slidesInView}%`
+    );
+  } else if (flowAxis === "Y") {
+    carouselTrack.style.height = `${totalSlides * itemPercentage}%`;
+    [...slides].forEach(
+      slide => slide.style.height = `${100 / slidesInView}%`
+    );
+  }
+}
+
+const initMultiItemTrackPosition = (
+  { carouselTrack, slides },
+  { flowAxis, flowDirection, maxItemsOnView }
+) => {
+  let slidesInView;
+  const totalSlides = slides.length;
+
+  const isScreenXS = window.matchMedia(XS_BREAKPOINT).matches;
+  const isScreenS = window.matchMedia(S_BREAKPOINT).matches;
+  const isScreenL = window.matchMedia(L_BREAKPOINT).matches;
+  const isScreenXL = window.matchMedia(XL_BREAKPOINT).matches;
+  const isScreenXXL = window.matchMedia(XXL_BREAKPOINT).matches;
+
+  if (isScreenXS) slidesInView = 1;
+  else if (isScreenS) slidesInView = 2;
+  else if (isScreenL) slidesInView = 3;
+  else if (isScreenXL) slidesInView = 4;
+  else if (isScreenXXL) slidesInView = maxItemsOnView;
+
+  setMultiItemTrackLength(
+    { carouselTrack, slides }, { flowAxis, slidesInView }
+  );
+
+  if (flowDirection === "+") {
+    carouselTrack.style.transform =
+      `translate${flowAxis}(-${100 / totalSlides - slidesInView}%)`
+  }
+}
+
+const handleManualSlide = (
+  { carouselTrack, slides },
+  { direction, maxItemsOnView }
+) => {
+  const flowAxis = direction === "to top" || direction === "to bottom"
+    ? "Y" : "X";
+  const flowDirection = direction === "to top" || direction === "to left"
+    ? "-" : "+";
+
+  initMultiItemTrackPosition(
+    { carouselTrack, slides }, { flowAxis, flowDirection, maxItemsOnView }
+  )
+  // const prevButton = getDomElement("button[data-previous]", carousel);
+  // const nextButton = getDomElement("button[data-next]", carousel);
+
+  // prevButton.addEventListener("click", prevSlide);
+  // nextButton.addEventListener("click", nextSlide);
 }
 
 const handleCarousel = (carousel) => {
@@ -100,7 +171,7 @@ const handleCarousel = (carousel) => {
   if (!isDisplayed(carousel)) return;
 
   const carouselTrack = [...carousel.children].filter(
-    child => child.tagName !== "BUTTON" && child.tagName === "DIV"
+    child => child.hasAttribute("data-carousel-track")
   )[0];
   if (!isDomElementNode(carouselTrack)) {
     console.warn("Selected Carousel has no valid track.");
@@ -114,13 +185,18 @@ const handleCarousel = (carousel) => {
   }
 
   const direction = carousel.getAttribute("data-direction");
+  const maxItemsOnView = carousel.getAttribute("data-max-items-on-view") ?? 1;
   const autoSlideDelay = carousel.getAttribute("data-auto-slide-delay");
 
-  setTrackLength({ carouselTrack, slides }, direction);
   if (autoSlideDelay) {
+    setTrackLength({ carouselTrack, slides }, direction);
     return handleAutoSlide(
       { carouselTrack, slides }, { direction, delay: autoSlideDelay }
     );
+  } else {
+    handleManualSlide(
+      { carouselTrack, slides }, { direction, maxItemsOnView }
+    )
   }
 }
 
