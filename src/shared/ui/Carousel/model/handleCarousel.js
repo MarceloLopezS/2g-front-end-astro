@@ -1,5 +1,6 @@
-import { isDomElementNode } from "../../../utils/pure";
-import { isDisplayed } from "../utils";
+import { getDomElement, isDomElementNode } from "../../../utils/pure";
+import { isDisplayed, showButton, hideButton } from "../utils";
+import { PREV_BUTTON, NEXT_BUTTON } from "../config/DOMSelectors";
 import { PROPERTY, DURATION, TIMING_FUNCTION } from "../config/SlideTransition";
 import {
   XS_BREAKPOINT,
@@ -128,9 +129,9 @@ const initMultiItemTrackPosition = (
   const isScreenXXL = window.matchMedia(XXL_BREAKPOINT).matches;
 
   if (isScreenXS) slidesInView = 1;
-  else if (isScreenS) slidesInView = 2;
-  else if (isScreenL) slidesInView = 3;
-  else if (isScreenXL) slidesInView = 4;
+  else if (isScreenS) slidesInView = maxItemsOnView < 2 ? maxItemsOnView : 2;
+  else if (isScreenL) slidesInView = maxItemsOnView < 3 ? maxItemsOnView : 3;
+  else if (isScreenXL) slidesInView = maxItemsOnView < 4 ? maxItemsOnView : 4;
   else if (isScreenXXL) slidesInView = maxItemsOnView;
 
   setMultiItemTrackLength(
@@ -141,25 +142,65 @@ const initMultiItemTrackPosition = (
     carouselTrack.style.transform =
       `translate${flowAxis}(-${100 / totalSlides - slidesInView}%)`
   }
+
+  return slidesInView
 }
 
 const handleManualSlide = (
-  { carouselTrack, slides },
+  { carousel, carouselTrack, slides },
   { direction, maxItemsOnView }
 ) => {
+  let currentIndex = 0;
+  const totalSlides = slides.length;
   const flowAxis = direction === "to top" || direction === "to bottom"
     ? "Y" : "X";
   const flowDirection = direction === "to top" || direction === "to left"
     ? "-" : "+";
-
-  initMultiItemTrackPosition(
+  const slidesInView = initMultiItemTrackPosition(
     { carouselTrack, slides }, { flowAxis, flowDirection, maxItemsOnView }
   )
-  // const prevButton = getDomElement("button[data-previous]", carousel);
-  // const nextButton = getDomElement("button[data-next]", carousel);
 
-  // prevButton.addEventListener("click", prevSlide);
-  // nextButton.addEventListener("click", nextSlide);
+  const prevButton = getDomElement(
+    flowDirection === "-" ? PREV_BUTTON : NEXT_BUTTON,
+    carousel
+  );
+  const nextButton = getDomElement(
+    flowDirection === "-" ? NEXT_BUTTON : PREV_BUTTON,
+    carousel
+  );
+
+  const goToSlide = (targetIndex) => {
+    if (targetIndex < 0) return;
+    if (targetIndex > totalSlides - slidesInView) return;
+
+    const requiredTranslate = 100 / totalSlides * targetIndex;
+
+    carouselTrack.style.transform =
+      `translate${flowAxis}(${flowDirection}${requiredTranslate}%)`;
+    currentIndex = targetIndex
+
+    const hasPrevSlide = currentIndex !== 0;
+    const hasNextSlide = currentIndex !== totalSlides - slidesInView;
+
+    !hasPrevSlide
+      ? hideButton(prevButton)
+      : prevButton.hasAttribute("data-show") || showButton(prevButton);
+    !hasNextSlide
+      ? hideButton(nextButton)
+      : nextButton.hasAttribute("data-show") || showButton(nextButton);
+  }
+
+  const prevSlide = () => goToSlide(currentIndex - 1);
+  const nextSlide = () => goToSlide(currentIndex + 1);
+
+  flowDirection === "-" ? showButton(nextButton) : showButton(prevButton);
+  prevButton.addEventListener("click", prevSlide);
+  nextButton.addEventListener("click", nextSlide);
+
+  return function manualSlideCleanup() {
+    prevButton.removeEventListener("click", prevSlide);
+    nextButton.removeEventListener("click", nextSlide);
+  }
 }
 
 const handleCarousel = (carousel) => {
@@ -195,7 +236,7 @@ const handleCarousel = (carousel) => {
     );
   } else {
     handleManualSlide(
-      { carouselTrack, slides }, { direction, maxItemsOnView }
+      { carousel, carouselTrack, slides }, { direction, maxItemsOnView }
     )
   }
 }

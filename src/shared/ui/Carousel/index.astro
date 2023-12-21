@@ -9,17 +9,10 @@ interface Props {
     delay: number; // In milliseconds
   };
   maxItemsOnView?: number; // Integer
-  navButtonsWidth?: string;
 }
 
-const {
-  id,
-  className,
-  direction,
-  autoSlideOptions,
-  maxItemsOnView,
-  navButtonsWidth,
-} = Astro.props;
+const { id, className, direction, autoSlideOptions, maxItemsOnView } =
+  Astro.props;
 ---
 
 <Carousel
@@ -28,7 +21,6 @@ const {
   direction={direction}
   autoSlideOptions={autoSlideOptions}
   maxItemsOnView={maxItemsOnView}
-  navButtonsWidth={navButtonsWidth}
 >
   <slot />
 </Carousel>
