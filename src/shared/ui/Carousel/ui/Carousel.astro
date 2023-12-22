@@ -5,14 +5,14 @@ interface Props {
   id?: string;
   className?: string;
   direction: "to top" | "to bottom" | "to left" | "to right";
-  autoSlideOptions?: {
-    delay: number;
+  trackOptions: {
+    type: "linear" | "infinite";
+    autoSlideDelay?: number; // In milliseconds
+    maxItemsOnView?: number; // Integer
   };
-  maxItemsOnView?: number;
 }
 
-const { id, className, direction, autoSlideOptions, maxItemsOnView } =
-  Astro.props;
+const { id, className, direction, trackOptions } = Astro.props;
 ---
 
 <section
@@ -20,16 +20,17 @@ const { id, className, direction, autoSlideOptions, maxItemsOnView } =
   class={className}
   data-mls-carousel
   data-direction={direction}
-  data-auto-slide-delay={autoSlideOptions?.delay}
-  data-max-items-on-view={maxItemsOnView}
+  data-track-type={trackOptions.type}
+  data-auto-slide-delay={trackOptions?.autoSlideDelay}
+  data-max-items-on-view={trackOptions?.maxItemsOnView}
   style="position: relative; width: 100%; height: 100%; overflow: hidden;"
 >
   <button
     data-previous
     style=`position: absolute; background-color: transparent; display: ${
-      autoSlideOptions?.delay ? "none" : "grid"
+      trackOptions?.autoSlideDelay ? "none" : "grid"
     }${
-      autoSlideOptions?.delay ? "" : "; place-items: center"
+      trackOptions?.autoSlideDelay ? "" : "; place-items: center"
     }; top: ${
       direction === "to top" || direction === "to bottom" ? "0" : "50%"
     }; left: ${
@@ -67,9 +68,9 @@ const { id, className, direction, autoSlideOptions, maxItemsOnView } =
   <button
     data-next
     style=`position: absolute; background-color: transparent; display: ${
-      autoSlideOptions?.delay ? "none" : "grid"
+      trackOptions?.autoSlideDelay ? "none" : "grid"
     }${
-      autoSlideOptions?.delay ? "" : "; place-items: center"
+      trackOptions?.autoSlideDelay ? "" : "; place-items: center"
     }; bottom: ${
       direction === "to top" || direction === "to bottom" ? "0" : "50%"
     }; right: ${
