@@ -5,22 +5,21 @@ interface Props {
   id?: string;
   className?: string;
   direction: "to top" | "to bottom" | "to left" | "to right";
-  autoSlideOptions?: {
-    delay: number; // In milliseconds
+  trackOptions: {
+    type: "linear" | "infinite";
+    autoSlideDelay?: number; // In milliseconds
+    maxItemsOnView?: number; // Integer
   };
-  maxItemsOnView?: number; // Integer
 }
 
-const { id, className, direction, autoSlideOptions, maxItemsOnView } =
-  Astro.props;
+const { id, className, direction, trackOptions } = Astro.props;
 ---
 
 <Carousel
   id={id}
   className={className}
   direction={direction}
-  autoSlideOptions={autoSlideOptions}
-  maxItemsOnView={maxItemsOnView}
+  trackOptions={trackOptions}
 >
   <slot />
 </Carousel>
