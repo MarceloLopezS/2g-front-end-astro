@@ -6,7 +6,7 @@ section[data-mls-carousel] button[data-next] {
   place-items: center;
   width: 1.35rem;
   height: 100%;
-  background-color: var(--clr-bg-opacity-50);
+  background-color: var(--clr-accent-bg-opacity-75);
   transition-property: opacity, background-color;
   transition-duration: 500ms;
   transition-timing-function: ease-out;
@@ -36,13 +36,13 @@ section[data-mls-carousel] button[data-next] path {
   }
 
   section[data-mls-carousel] button[data-show] {
-    background-color: var(--clr-bg-opacity-350);
+    background-color: var(--clr-accent-bg-opacity-75);
   }
 }
 
 @media (hover: hover) {
   section[data-mls-carousel] button[data-show]:hover,
   section[data-mls-carousel] button[data-show]:focus-visible {
-    background-color: var(--clr-bg-opacity-700);
+    background-color: var(--clr-accent-bg-opacity-275);
   }
 }
