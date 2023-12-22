@@ -3,9 +3,12 @@ import "./ProjectsGrid.css";
 import Card from "../Card/Card.astro";
 import Carousel from "../../../../shared/ui/Carousel/index.astro";
 
-import costaDelSolImg from "../../../../shared/assets/images/remodelacion-hotel-costa-del-sol.webp";
 import proyectoSanJoseImg from "../../../../shared/assets/images/proyecto-inmobiliario.webp";
 import estacionMeteorologicaImg from "../../../../shared/assets/images/estacion-meteorologica.webp";
+import renovacionLobbyCostaDelSolImg from "../../../../shared/assets/images/renovacion-lobby-costa-del-sol.webp";
+import proyectoLagunaSanNicolasImg from "../../../../shared/assets/images/proyecto-laguna-san-nicolas.webp";
+import cajerosCajaPiuraImg from "../../../../shared/assets/images/cajeros-caja-piura.webp";
+import costaDelSolImg from "../../../../shared/assets/images/remodelacion-hotel-costa-del-sol.webp";
 import sistemaBombeoImg from "../../../../shared/assets/images/diseño-sistema-rebombeo.webp";
 ---
 
@@ -14,6 +17,78 @@ import sistemaBombeoImg from "../../../../shared/assets/images/diseño-sistema-r
     direction="to left"
     trackOptions={{ type: "linear", maxItemsOnView: 4 }}
   >
+    <Card
+      mediaSrc={proyectoSanJoseImg.src}
+      mediaAltText="Proyecto Inmobiliario Vica World Global S.A.C"
+      projectType="Diseño - Construcción"
+      projectEmployer="Vica World Global S.A.C"
+      projectStudyCaseParagraphs={[
+        "Levantamiento topográfico detallado y movimiento de tierras eficiente para un entorno residencial excepcional.",
+        "Proyecto Inmobiliario Residencial San José - Namora - Cajamarca",
+      ]}
+      projectDescriptionParagraphs={[
+        "Vica Work Global S.A.C es una empresa inmobiliaria reconocida en la ciudad de Cajamarca, con inicio de actividades en el año 2014.",
+        "El proyecto consistió en el acondicionamiento del área para una próxima residencial, realizándose trabajos de: levantamiento topográfico, preparación del terreno, corte, relleno y trazado, demarcación de áreas comunes e instalación de un portón de ingreso.",
+        "El cliente expresó su satisfacción con los trabajos y el servicio realizado, reconociendo nuestro compromiso y trayectoria.",
+      ]}
+    />
+    <Card
+      mediaSrc={estacionMeteorologicaImg.src}
+      mediaAltText="Cerco perimétrico Estación Meteorológica Automática Chugur"
+      projectType="Construcción"
+      projectEmployer="Servicio Nacional Meteorología e Hidrología"
+      projectStudyCaseParagraphs={[
+        "Reubicación, instalación de cerco perimetral y ejecución de mantenimiento preventivo para la Estación Meteorológica Automática Chugur - Hualgayoc - Cajamarca",
+      ]}
+      projectDescriptionParagraphs={[
+        "El SENAMHI es un organismo público especializado  en las áreas de meteorología, hidrología, agrometeorología y asuntos ambientales.",
+        "El proyecto consistió en la reubicación de una torre de alta tensión y la instalación de un cerco perimétrico. Se llevaron a cabo trabajos de alto riego (trabajos en altura), pero siempre cumpliendo con los estándares de seguridad por parte de nuestros trabajadores.",
+        "El cliente quedó satisfecho con el trabajo final, siendo un referente importante en nuestra cartera.",
+      ]}
+    />
+    <Card
+      mediaSrc={renovacionLobbyCostaDelSolImg.src}
+      mediaAltText="Renovación de lobby del hotel Costa del Sol Cajamarca - Wyndham"
+      projectType="Construcción"
+      projectEmployer="Costa del Sol Wyndham"
+      projectStudyCaseParagraphs={[
+        "Renovación integral del lobby y bar en el Hotel Costa del Sol Wyndham - Cajamarca",
+      ]}
+      projectDescriptionParagraphs={[
+        "La empresa hotelera Costa del Sol - Wyndham goza de un destacado reconocimiento en la ciudad de Cajamarca y a nivel nacional. Con un total de 11 sucursales, se consolida como una de las cadenas hoteleras más prominentes y relevantes del país.",
+        "La iniciativa abarcó la renovación completa del lobby y bar del hotel, orientada hacia una modernización de sus espacios sociales y adaptada a las expectativas de las nuevas generaciones.",
+        "La entrega del proyecto se llevó a cabo cumpliendo rigurosos estándares de calidad, seguridad y respeto al medio ambiente, aspectos fundamentales para garantizar la plena satisfacción de nuestros clientes.",
+      ]}
+    />
+    <Card
+      mediaSrc={proyectoLagunaSanNicolasImg.src}
+      mediaAltText="Proyecto inmobiliario en Laguna San Nicolás - Namora - Cajamarca."
+      projectType="Diseño - Construcción"
+      projectEmployer="Grupo Inmobiliario Gaia S.A.C."
+      projectStudyCaseParagraphs={[
+        "Diseño, planificación y ejecución de infraestructuras para garantizar calidad, sostenibilidad y seguridad residencial.",
+        "Proyecto inmobiliario en Laguna San Nicolás - Namora - Cajamarca",
+      ]}
+      projectDescriptionParagraphs={[
+        "Grupo Inmobiliario Gaia S.A.C. es una empresa recientemente establecida en la ciudad de Cajamarca, iniciando sus operaciones en el año 2022.",
+        "El proyecto se centró en la preparación de la zona turística para una futura área residencial, abarcando diversas tareas como levantamiento topográfico y acondicionamiento del terreno, así como la delimitación y demarcación de las áreas comunes.",
+        "El grupo inmobiliario expresó su plena satisfacción con los trabajos y el servicio proporcionado, destacando el reconocimiento y aceptación positiva por parte de la población local.",
+      ]}
+    />
+    <Card
+      mediaSrc={cajerosCajaPiuraImg.src}
+      mediaAltText="Instalación de cajeros en CMAC Piura S.A.C."
+      projectType="Diseño - Construcción"
+      projectEmployer="CMAC Piura S.A.C."
+      projectStudyCaseParagraphs={[
+        "Servicio de reubicación, instalación y mantenimiento del espacio integral de tres cajeros automáticos y un kiosco multifuncional.",
+      ]}
+      projectDescriptionParagraphs={[
+        "La Caja Municipal de Ahorro y Crédito de Piura, fundada en 1982, destaca como una institución financiera peruana centrada en la promoción de la inclusión financiera y el respaldo a pequeñas y medianas empresas.",
+        "El objetivo principal del servicio se centró en ampliar la disponibilidad de cajeros automáticos en la agencia, mediante la implementación de un Cajero regular adicional y un Cajero Multifuncional.",
+        "Se realizó una reestructuración de los espacios designados para un total de tres cajeros automáticos, cumpliendo de manera integral con las normativas de seguridad establecidas por Asbanc, la Asociación de Bancos del Perú, así como con las normativas técnicas europeas aplicables a los cajeros automáticos.",
+      ]}
+    />
     <Card
       mediaSrc={costaDelSolImg.src}
       mediaAltText="Remodelación Costa del Sol Cajamarca - Wyndham"
@@ -29,36 +104,6 @@ import sistemaBombeoImg from "../../../../shared/assets/images/diseño-sistema-r
       ]}
     />
     <Card
-      mediaSrc={proyectoSanJoseImg.src}
-      mediaAltText="Proyecto Inmobiliario Vica World Global S.A.C"
-      projectType="Saneamiento físico legal de predios"
-      projectEmployer="Vica World Global S.A.C"
-      projectStudyCaseParagraphs={[
-        "Levantamiento topográfico",
-        "Movimiento de tierras",
-        "Proyecto Inmobiliario Residencial San José - Namora - Cajamarca",
-      ]}
-      projectDescriptionParagraphs={[
-        "Vica Work Global S.A.C es una empresa inmobiliaria reconocida en la ciudad de Cajamarca, con inicio de actividades en el año 2014.",
-        "El proyecto consistió en el acondicionamiento del área para una próxima residencial, realizándose trabajos de: levantamiento topográfico, preparación del terreno, corte, relleno y trazado, demarcación de áreas comunes e instalación de un portón de ingreso.",
-        "El cliente expresó su satisfacción con los trabajos y el servicio realizado, reconociendo nuestro compromiso y trayectoria.",
-      ]}
-    />
-    <Card
-      mediaSrc={estacionMeteorologicaImg.src}
-      mediaAltText="Cerco perimétrico Estación Meteorológica Automática Chugur"
-      projectType="Construcción"
-      projectEmployer="Servicio Nacional Meteorología e Hidrología"
-      projectStudyCaseParagraphs={[
-        "Reubicación, colocación de cerco perimétrico y mantenimiento preventivo de la Estación Meteorológica Automática Chugur - Cajamarca",
-      ]}
-      projectDescriptionParagraphs={[
-        "El SENAMHI es un organismo público especializado  en las áreas de meteorología, hidrología, agrometeorología y asuntos ambientales.",
-        "El proyecto consistió en la reubicación de una torre de alta tensión y la instalación de un cerco perimétrico. Se llevaron a cabo trabajos de alto riego (trabajos en altura), pero siempre cumpliendo con los estándares de seguridad por parte de nuestros trabajadores.",
-        "El cliente quedó satisfecho con el trabajo final, siendo un referente importante en nuestra cartera.",
-      ]}
-    />
-    <Card
       mediaSrc={sistemaBombeoImg.src}
       mediaAltText="Sistema de rebombeo - Minera Yanaocha"
       projectType="Diseño"
@@ -70,36 +115,6 @@ import sistemaBombeoImg from "../../../../shared/assets/images/diseño-sistema-r
         "Minera Yanacocha es una mina aurífera considerada la más grande de América del Sur y la segunda a nivel mundial.",
         "El proyecto tuvo la finalidad de evaluar el funcionamiento hidráulico del sistema de tanques de rebombeo del tajo (Tapado Oeste), haciendo uso de información topográfica y cartográfica. Se obtuvieron referencias a tiempos inoperativos y, en consecuencia, presentamos una alternativa de solución de ingeniería, obteniendo importantes mejoras en la optimización de drenaje.",
         "El proyecto generó la satisfacción nuestra y del cliente, considerándose un éxito por ambas partes.",
-      ]}
-    />
-    <Card
-      mediaSrc={proyectoSanJoseImg.src}
-      mediaAltText="Proyecto Inmobiliario Vica World Global S.A.C"
-      projectType="Saneamiento físico legal de predios"
-      projectEmployer="Vica World Global S.A.C"
-      projectStudyCaseParagraphs={[
-        "Levantamiento topográfico",
-        "Movimiento de tierras",
-        "Proyecto Inmobiliario Residencial San José - Namora - Cajamarca",
-      ]}
-      projectDescriptionParagraphs={[
-        "Vica Work Global S.A.C es una empresa inmobiliaria reconocida en la ciudad de Cajamarca, con inicio de actividades en el año 2014.",
-        "El proyecto consistió en el acondicionamiento del área para una próxima residencial, realizándose trabajos de: levantamiento topográfico, preparación del terreno, corte, relleno y trazado, demarcación de áreas comunes e instalación de un portón de ingreso.",
-        "El cliente expresó su satisfacción con los trabajos y el servicio realizado, reconociendo nuestro compromiso y trayectoria.",
-      ]}
-    />
-    <Card
-      mediaSrc={estacionMeteorologicaImg.src}
-      mediaAltText="Cerco perimétrico Estación Meteorológica Automática Chugur"
-      projectType="Construcción"
-      projectEmployer="Servicio Nacional Meteorología e Hidrología"
-      projectStudyCaseParagraphs={[
-        "Reubicación, colocación de cerco perimétrico y mantenimiento preventivo de la Estación Meteorológica Automática Chugur - Cajamarca",
-      ]}
-      projectDescriptionParagraphs={[
-        "El SENAMHI es un organismo público especializado  en las áreas de meteorología, hidrología, agrometeorología y asuntos ambientales.",
-        "El proyecto consistió en la reubicación de una torre de alta tensión y la instalación de un cerco perimétrico. Se llevaron a cabo trabajos de alto riego (trabajos en altura), pero siempre cumpliendo con los estándares de seguridad por parte de nuestros trabajadores.",
-        "El cliente quedó satisfecho con el trabajo final, siendo un referente importante en nuestra cartera.",
       ]}
     />
   </Carousel>
