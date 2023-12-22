@@ -1,6 +1,6 @@
 ---
 import "./ContactForm.css";
-import CustomSelect from "../../../../../shared/ui/CustomSelect/CustomSelect.astro";
+import CustomSelect from "../../../../../shared/ui/CustomSelect/index.astro";
 import InputGroup from "./InputGroup/InputGroup.astro";
 import Loader from "../../../../../shared/ui/Loader/Loader.astro";
 ---
@@ -12,7 +12,7 @@ import Loader from "../../../../../shared/ui/Loader/Loader.astro";
   >
     <div class="contact-us__select-container">
       <CustomSelect
-        selectElementId="contact-us__service"
+        id="contact-us__service"
         optionsArray={[
           "-",
           "Construcción",
