@@ -1,13 +1,48 @@
 section[data-mls-carousel] button[data-previous],
 section[data-mls-carousel] button[data-next] {
-  width: clamp(2rem, 3vw, 6rem);
-  aspect-ratio: 1;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 500ms ease-out;
+  display: grid;
+  place-items: center;
+  width: 1.35rem;
+  height: 100%;
+  background-color: var(--clr-bg-opacity-50);
+  transition-property: opacity, background-color;
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
 }
 
 section[data-mls-carousel] button[data-show] {
   visibility: visible;
   opacity: 1;
+}
+
+section[data-mls-carousel] button[data-previous] svg,
+section[data-mls-carousel] button[data-next] svg {
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+section[data-mls-carousel] button[data-previous] path,
+section[data-mls-carousel] button[data-next] path {
+  color: black; /* Fallback */
+  color: var(--clr-neutral-200);
+}
+
+@media (min-width: 50rem) {
+  section[data-mls-carousel] button[data-previous],
+  section[data-mls-carousel] button[data-next] {
+    width: clamp(1.5rem, 1.5vw, 2rem);
+  }
+
+  section[data-mls-carousel] button[data-show] {
+    background-color: var(--clr-bg-opacity-350);
+  }
+}
+
+@media (hover: hover) {
+  section[data-mls-carousel] button[data-show]:hover,
+  section[data-mls-carousel] button[data-show]:focus-visible {
+    background-color: var(--clr-bg-opacity-700);
+  }
 }

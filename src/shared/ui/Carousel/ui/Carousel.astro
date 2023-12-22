@@ -27,7 +27,7 @@ const { id, className, direction, trackOptions } = Astro.props;
 >
   <button
     data-previous
-    style=`position: absolute; background-color: transparent; display: ${
+    style=`position: absolute; display: ${
       trackOptions?.autoSlideDelay ? "none" : "grid"
     }${
       trackOptions?.autoSlideDelay ? "" : "; place-items: center"
@@ -67,7 +67,7 @@ const { id, className, direction, trackOptions } = Astro.props;
   </div>
   <button
     data-next
-    style=`position: absolute; background-color: transparent; display: ${
+    style=`position: absolute; display: ${
       trackOptions?.autoSlideDelay ? "none" : "grid"
     }${
       trackOptions?.autoSlideDelay ? "" : "; place-items: center"
