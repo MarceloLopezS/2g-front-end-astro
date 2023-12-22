@@ -15,12 +15,14 @@ import Statistics from "./ui/Statistics/Statistics.astro";
   import {
     DESCRIPTION_SECTION,
     DESCRIPTION_SLIDE,
+    DESCRIPTION_EXTRA_INFO_BUTTON,
   } from "./config/DOMSelectors";
   import handleAdditionalDescriptionToggle from "./model/handleAdditionalDescriptionToggle";
 
   const DESCRIPTION_TOGGLE_SELECTORS = {
     slidesContainerSelector: DESCRIPTION_SECTION,
     textSlidesSelector: DESCRIPTION_SLIDE,
+    extraInfoButtonSelector: DESCRIPTION_EXTRA_INFO_BUTTON,
   };
 
   handleAdditionalDescriptionToggle(DESCRIPTION_TOGGLE_SELECTORS);
