@@ -19,7 +19,7 @@
 .card[data-section="projects"] .card__media::after {
   content: "";
   position: absolute;
-  background-color: hsl(0, 0%, 0%, 0.5);
+  background-color: hsl(0, 0%, 0%, 0.55);
   inset: 0;
 }
 
