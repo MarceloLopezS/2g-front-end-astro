@@ -26,6 +26,13 @@ const { id, className, direction, trackOptions } = Astro.props;
 
 <script>
   import { CAROUSELS } from "./config/DOMSelectors";
+  import {
+    XS_BREAKPOINT,
+    S_BREAKPOINT,
+    L_BREAKPOINT,
+    XL_BREAKPOINT,
+    XXL_BREAKPOINT,
+  } from "./config/ScreenSizeBreakpoints";
   import { getAllDomElements } from "../../utils/pure";
   import handleCarousel from "./model/handleCarousel";
 
@@ -49,12 +56,20 @@ const { id, className, direction, trackOptions } = Astro.props;
     };
   };
 
+  const onQueryChange = (onChangeFunction, ...mediaQueries) => {
+    mediaQueries.forEach((query) =>
+      query.addEventListener("change", onChangeFunction),
+    );
+  };
+
   carouselCleanUps = handleAllCarousels(CAROUSELS);
-  const screenOrientation = window.screen.orientation;
-  if (!screenOrientation) {
-    // For Safari
-    window.addEventListener("orientationchange", resetCarousels(CAROUSELS));
-  } else {
-    screenOrientation.addEventListener("change", resetCarousels(CAROUSELS));
-  }
+  const mediaQueries = [
+    matchMedia(XS_BREAKPOINT),
+    matchMedia(S_BREAKPOINT),
+    matchMedia(L_BREAKPOINT),
+    matchMedia(XL_BREAKPOINT),
+    matchMedia(XXL_BREAKPOINT),
+  ];
+
+  onQueryChange(resetCarousels(CAROUSELS), ...mediaQueries);
 </script>

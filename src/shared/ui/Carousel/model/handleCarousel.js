@@ -42,7 +42,8 @@ const handleCarousel = (carousel) => {
       carousel
     );
 
-    handleLinearTrack(
+    // return handler cleanUp Function
+    return handleLinearTrack(
       { carouselTrack, slides, prevButton, nextButton },
       { flowAxis, flowDirection, maxItemsOnView }
     )
@@ -50,7 +51,8 @@ const handleCarousel = (carousel) => {
   if (trackType === "infinite") {
     const autoSlideDelay = carousel.getAttribute("data-auto-slide-delay");
 
-    handleInfiniteTrack(
+    // return handler cleanUp Function
+    return handleInfiniteTrack(
       { carouselTrack, slides },
       { flowAxis, flowDirection, autoSlideDelay }
     )
