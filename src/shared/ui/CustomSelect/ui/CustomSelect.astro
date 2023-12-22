@@ -2,19 +2,17 @@
 import "./CustomSelect.css";
 
 interface Props {
-  selectElementId: string;
+  id: string;
   optionsArray: Array<string>;
 }
 
-const { selectElementId, optionsArray } = Astro.props;
+const { id, optionsArray } = Astro.props;
 ---
 
-<select id={selectElementId}>
+<select id={id}>
   {
     optionsArray.map((option, i) =>
       i === 0 ? <option selected>{option}</option> : <option>{option}</option>,
     )
   }
 </select>
-
-<script></script>

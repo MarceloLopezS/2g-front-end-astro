@@ -1,0 +1,14 @@
+---
+import CustomSelect from "./ui/CustomSelect.astro";
+
+interface Props {
+  id: string;
+  optionsArray: Array<string>;
+}
+
+const { id, optionsArray } = Astro.props;
+---
+
+<CustomSelect id={id} optionsArray={optionsArray} />
+
+<script></script>
