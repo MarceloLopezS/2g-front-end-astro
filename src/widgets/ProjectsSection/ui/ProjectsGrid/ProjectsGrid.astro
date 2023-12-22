@@ -10,7 +10,10 @@ import sistemaBombeoImg from "../../../../shared/assets/images/diseño-sistema-r
 ---
 
 <section class="projects__wrapper">
-  <Carousel direction="to left" maxItemsOnView={4}>
+  <Carousel
+    direction="to left"
+    trackOptions={{ type: "linear", maxItemsOnView: 4 }}
+  >
     <Card
       mediaSrc={costaDelSolImg.src}
       mediaAltText="Remodelación Costa del Sol Cajamarca - Wyndham"
