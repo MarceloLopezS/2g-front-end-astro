@@ -32,8 +32,8 @@ const setTrackLength = (
   }
 }
 
-const initTrackPosition = (
-  { carouselTrack, slides },
+const initTrack = (
+  { carouselTrack, slides, prevButton },
   { flowAxis, flowDirection, maxItemsOnView }
 ) => {
   let slidesInView;
@@ -57,8 +57,12 @@ const initTrackPosition = (
 
   if (flowDirection === POSITIVE) {
     carouselTrack.style.transform =
-      `translate${flowAxis}(-${100 / totalSlides - slidesInView}%)`
+      `translate${flowAxis}(-${100 / totalSlides - slidesInView}%)`;
+  } else {
+    carouselTrack.style.transform = `translate${flowAxis}(0%)`
   }
+
+  hideButton(prevButton)
 
   return slidesInView
 }
@@ -70,8 +74,9 @@ const handleLinearTrack = (
   let currentIndex = 0;
 
   const totalSlides = slides.length;
-  const slidesInView = initTrackPosition(
-    { carouselTrack, slides }, { flowAxis, flowDirection, maxItemsOnView }
+  const slidesInView = initTrack(
+    { carouselTrack, slides, prevButton },
+    { flowAxis, flowDirection, maxItemsOnView }
   )
 
   const goToSlide = (targetIndex) => {
