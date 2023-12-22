@@ -15,7 +15,10 @@
 
   --clr-invalid: hsl(354, 70%, 54%);
 
-  --clr-bg-opacity-100: hsl(212, 70%, 10%, 0.01);
+  --clr-bg-opacity-50: hsl(212, 70%, 10%, 0.05);
+  --clr-bg-opacity-100: hsl(212, 70%, 10%, 0.1);
+  --clr-bg-opacity-350: hsl(212, 70%, 10%, 0.35);
+  --clr-bg-opacity-400: hsl(212, 70%, 10%, 0.4);
   --clr-bg-opacity-550: hsl(212, 70%, 10%, 0.55);
   --clr-bg-opacity-700: hsl(212, 70%, 10%, 0.7);
   --clr-bg-opacity-850: hsl(212, 70%, 10%, 0.85);
