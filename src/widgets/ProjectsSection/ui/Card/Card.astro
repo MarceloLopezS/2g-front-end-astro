@@ -29,12 +29,20 @@ const {
     <h3>{projectEmployer}</h3>
     <p>Caso de estudio</p>
     {projectStudyCaseParagraphs.map((paragraph) => <p>{paragraph}</p>)}
-    <button type="button" class="btn" data-bg="primary">
+    <button
+      type="button"
+      class="card__extra-info-button--toggler | btn"
+      data-bg="primary"
+    >
       Más sobre el proyecto
     </button>
   </div>
   <div class="card__body complement | text-align-justify">
     {projectDescriptionParagraphs.map((paragraph) => <p>{paragraph}</p>)}
-    <button type="button" class="btn" data-bg="primary">Atrás</button>
+    <button
+      type="button"
+      class="card__extra-info-button--toggler | btn"
+      data-bg="primary">Atrás</button
+    >
   </div>
 </div>
