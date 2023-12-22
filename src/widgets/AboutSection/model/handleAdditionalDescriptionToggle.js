@@ -1,10 +1,11 @@
 import { getAllDomElements, getDomElement, isDomElementNode } from "../../../shared/utils/pure";
 
-const toggleAdditionalDescription = (
+const toggleAdditionalDescription = ({
   slidesContainerSelector,
-  textSlidesSelector
-) => (event) => {
-  if (event.target.tagName !== "BUTTON") return;
+  textSlidesSelector,
+  extraInfoButtonSelector
+}) => (event) => {
+  if (event.target.closest(extraInfoButtonSelector) == null) return;
 
   const targetButton = event.target;
   const slidesContainer = targetButton.closest(slidesContainerSelector);
@@ -22,7 +23,8 @@ const toggleAdditionalDescription = (
 
 const handleAdditionalDescriptionToggle = ({
   slidesContainerSelector,
-  textSlidesSelector
+  textSlidesSelector,
+  extraInfoButtonSelector
 }) => {
   const slidesContainer = getDomElement(slidesContainerSelector);
 
@@ -35,7 +37,11 @@ const handleAdditionalDescriptionToggle = ({
 
   slidesContainer.addEventListener(
     "click",
-    toggleAdditionalDescription(slidesContainerSelector, textSlidesSelector)
+    toggleAdditionalDescription({
+      slidesContainerSelector,
+      textSlidesSelector,
+      extraInfoButtonSelector
+    })
   )
 }
 
