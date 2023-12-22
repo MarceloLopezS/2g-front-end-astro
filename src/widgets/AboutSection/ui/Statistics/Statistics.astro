@@ -7,7 +7,10 @@ import Carousel from "../../../../shared/ui/Carousel/index.astro";
   class="about-us__statistics | ff-primary text-neutral-100 bg-primary-400"
 >
   <div class="about-us__statistics-indicator | fs-carousel-indicator fw-light">
-    <Carousel direction="to top" autoSlideOptions={{ delay: 4000 }}>
+    <Carousel
+      direction="to top"
+      trackOptions={{ type: "infinite", autoSlideDelay: 4000 }}
+    >
       <div>
         <p>01</p>
       </div>
@@ -20,7 +23,10 @@ import Carousel from "../../../../shared/ui/Carousel/index.astro";
     </Carousel>
   </div>
   <div class="about-us__statistics-percentaje | fs-carousel-number fw-bold">
-    <Carousel direction="to top" autoSlideOptions={{ delay: 4000 }}>
+    <Carousel
+      direction="to top"
+      trackOptions={{ type: "infinite", autoSlideDelay: 4000 }}
+    >
       <div>
         <p>90<span class="text-accent-400">%</span></p>
       </div>
@@ -35,7 +41,10 @@ import Carousel from "../../../../shared/ui/Carousel/index.astro";
   <div
     class="about-us__statistics-description | fs-carousel-description fw-light"
   >
-    <Carousel direction="to top" autoSlideOptions={{ delay: 4000 }}>
+    <Carousel
+      direction="to top"
+      trackOptions={{ type: "infinite", autoSlideDelay: 4000 }}
+    >
       <div>
         <p>De nuestros proyectos son bajo el esquema diseño/construcción</p>
       </div>
