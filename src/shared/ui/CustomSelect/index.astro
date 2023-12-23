@@ -2,13 +2,22 @@
 import CustomSelect from "./ui/CustomSelect.astro";
 
 interface Props {
-  id: string;
+  id?: string;
+  className?: string;
   optionsArray: Array<string>;
 }
 
-const { id, optionsArray } = Astro.props;
+const { id, className, optionsArray } = Astro.props;
 ---
 
-<CustomSelect id={id} optionsArray={optionsArray} />
+<CustomSelect id={id} className={className} optionsArray={optionsArray} />
 
-<script></script>
+<script>
+  import { getAllDomElements } from "../../utils/pure";
+  import { SELECT } from "./config/DOMSelectors";
+  import Dropdown from "./model/handleCustomSelect";
+
+  getAllDomElements(SELECT).forEach((select) => {
+    return new Dropdown(select);
+  });
+</script>
