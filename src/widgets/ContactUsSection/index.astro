@@ -11,3 +11,37 @@ import FormSection from "./ui/FormSection/FormSection.astro";
   />
   <FormSection title="Envíanos un mensaje:" />
 </ContactUsSection>
+
+<script>
+  import {
+    CONTACT_FORM,
+    SERVICES_SELECT,
+    NAME_INPUT,
+    EMAIL_INPUT,
+    COMPANY_INPUT,
+    CITY_INPUT,
+    MESSAGE_TEXTAREA,
+    CUSTOM_SELECT_CONTAINER,
+    INPUT_CONTAINER,
+    SERVER_RESPONSE_CONTAINER,
+    LOADER,
+  } from "./config/DOMSelectors";
+  import handleFormSubmit from "./model/handleFormSubmit";
+  import handleInputStatusReset from "./model/handleInputStatusReset";
+
+  handleFormSubmit(CONTACT_FORM, {
+    serviceSelectSelector: SERVICES_SELECT,
+    nameInputSelector: NAME_INPUT,
+    emailInputSelector: EMAIL_INPUT,
+    companyInputSelector: COMPANY_INPUT,
+    cityInputSelector: CITY_INPUT,
+    messageTextAreaSelector: MESSAGE_TEXTAREA,
+    serverResponseContainerSelector: SERVER_RESPONSE_CONTAINER,
+    loaderSelector: LOADER,
+  });
+  handleInputStatusReset({
+    formSelector: CONTACT_FORM,
+    inputStatusDisplayerSelector: INPUT_CONTAINER,
+    customSelectStatusDisplayerSelector: CUSTOM_SELECT_CONTAINER,
+  });
+</script>

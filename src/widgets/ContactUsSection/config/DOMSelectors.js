@@ -1,0 +1,11 @@
+export const CONTACT_FORM = "form.contact-us__form";
+export const SERVICES_SELECT = "select";
+export const NAME_INPUT = "input[name='contact-us__name']";
+export const EMAIL_INPUT = "input[name='contact-us__email']";
+export const COMPANY_INPUT = "input[name='contact-us__company']";
+export const CITY_INPUT = "input[name='contact-us__city']";
+export const MESSAGE_TEXTAREA = "textarea[name='contact-us__message']";
+export const CUSTOM_SELECT_CONTAINER = ".contact-us__select-container";
+export const INPUT_CONTAINER = ".contact-us__input-container";
+export const SERVER_RESPONSE_CONTAINER = ".contact-us__response";
+export const LOADER = ".loader";
