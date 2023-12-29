@@ -18,7 +18,7 @@
   top: 50%;
   left: 4.25%;
   transform: translateY(-50%);
-  animation: loader-38 6s infinite;
+  animation: square-composition-rotation 6s infinite;
 }
 
 @keyframes square-composition-rotation {
