@@ -1,4 +1,6 @@
 import { getDomElement, isDomElementNode } from "../../../shared/utils/pure";
+import { REQUEST_URL, METHOD, HEADERS } from "../config/ApiRequestParams";
+import sendFormData from "../api/sendFormData";
 
 const clearServerResponse = (serverResponseContainer) => {
   serverResponseContainer.textContent = "";
@@ -41,16 +43,7 @@ const validateInputs = ({
   return isFormValid
 }
 
-const sendData = async (requestURL, { method, body, headers }) => {
-  try {
-    const result = await fetch(requestURL, { method, body, headers });
-    return await result.json();
-  } catch (err) {
-    return `Fetch error: ${err}`
-  }
-}
-
-const sendDataToApi = ({
+const handleApiRequest = ({
   serviceSelectSelector,
   nameInputSelector,
   emailInputSelector,
@@ -111,20 +104,18 @@ const sendDataToApi = ({
   loader.setAttribute("data-show", "");
   submitButton.disabled = true;
 
-  const requestURL = "localhost:3001";
-  const method = "POST"
   const formData = {
     serviceOfInterest: serviceOfInterest.value,
     clientName: clientName.value,
     email: email.value,
     company: company.value,
     city: city.value,
-    message: message.value
+    message: clientMessage.value
   };
-  const headers = { 'Content-Type': 'application/json' };
 
-  const responseData = await sendData(
-    requestURL, { method, body: JSON.stringify(formData), headers }
+  const responseData = await sendFormData(
+    REQUEST_URL,
+    { method: METHOD, body: JSON.stringify(formData), headers: HEADERS }
   );
 
   if (
@@ -132,9 +123,8 @@ const sendDataToApi = ({
   ) {
     loader.removeAttribute("data-show");
     console.error(responseData);
-    serverResponseContainer.textContent(
-      "Hubo un inconveniente al procesar la solicitud. Por favor, vuelva a intentar en unos momentos."
-    );
+    serverResponseContainer.textContent =
+      "Hubo un inconveniente al procesar la solicitud. Por favor, vuelva a intentar en unos momentos.";
     serverResponseContainer.setAttribute('data-danger', '');
     submitButton.disabled = false;
     return
@@ -186,7 +176,7 @@ const handleFormSubmit = (
     loaderSelector
   }
 
-  form.addEventListener("submit", sendDataToApi(submitHandlerArgs))
+  form.addEventListener("submit", handleApiRequest(submitHandlerArgs))
 }
 
 export default handleFormSubmit
