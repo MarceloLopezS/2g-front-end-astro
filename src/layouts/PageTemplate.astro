@@ -17,6 +17,57 @@ const { title, description } = Astro.props;
     <link rel="icon" href="/logo.ico" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": ["HomeAndConstructionBusiness", "GeneralContractor"],
+        "name": "2G Servicios Generales S.R.L",
+        "address": {
+          "@type": "PostalAddress",
+          "postalCode": "06002",
+          "streetAddress": "Jr. San Sebastián 557",
+          "addressCountry": "PE",
+          "addressRegion": "Cajamarca",
+          "addressLocality": "Cajamarca",
+          "telephone": "+51 966 869 663"
+        },
+        "image": [
+          "https://2gserviciosgenerales.com/static/media/remodelacion-hotel-costa-del-sol.8c282a3ca5588acab75e.webp",
+          "https://2gserviciosgenerales.com/static/media/saneamiento-fisico-legal-predios.c15e4f2fb888aed173c0.webp",
+          "https://2gserviciosgenerales.com/static/media/sistemas-drenaje.8d49daeb8fdea01acf3d.webp",
+          "https://2gserviciosgenerales.com/static/media/evaluacion-sistemas-bombeo.f6a330bf00cbca18d0bf.webp",
+          "https://2gserviciosgenerales.com/static/media/movimiento-tierras.3d8fee1b9c3f368ad6e6.webp",
+          "https://2gserviciosgenerales.com/static/media/levantamiento-topografico.1b5ae571f8ccc2bae909.webp",
+          "https://2gserviciosgenerales.com/static/media/construccion-civil.2651aea756fdec1d59c4.webp"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.7",
+          "ratingCount": "8",
+          "reviewCount": "7"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "-7.165263552329575",
+          "longitude": "-78.51647668479347"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "opens": "08:00",
+          "closes": "18:00",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ]
+        },
+        "telephone": "+51 966 869 663",
+        "url": "https://2gserviciosgenerales.com/"
+      }
+    </script>
   </head>
   <body>
     <slot />
