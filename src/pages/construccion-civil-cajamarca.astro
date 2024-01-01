@@ -1,0 +1,26 @@
+---
+import PageTemplate from "../layouts/PageTemplate.astro";
+import Navbar from "../widgets/Navbar/index.astro";
+import Footer from "../widgets/Footer/index.astro";
+import HeroSection from "../widgets/HeroSection/index.astro";
+import AboutSection from "../widgets/AboutSection/index.astro";
+import ServicesSection from "../widgets/ServicesSection/index.astro";
+import ProjectsSection from "../widgets/ProjectsSection/index.astro";
+import ContactUsSection from "../widgets/ContactUsSection/index.astro";
+
+const META_TITLE = "2G | Construcción Civil en Cajamarca";
+const META_DESCRIPTION =
+  "Somos 2G SERVICIOS GENERALES S.R.L, una empresa peruana con sede en Cajamarca y dedicada a la ejecución de proyectos de construcción e ingeniería con más de diez años de experiencia en: levantamientos topográficos, movimiento de tierras, saneamiento físico legal de predios, construcción y mantenimiento en interiores y exteriores de edificaciones, trabajos de arco eléctrico y oxicorte, alquiler de maquinaria liviana para construcción y minería, sistemas de rebombeo de aguas superficiales.";
+---
+
+<PageTemplate title={META_TITLE} description={META_DESCRIPTION}>
+  <Navbar />
+  <main>
+    <HeroSection />
+    <AboutSection />
+    <ServicesSection />
+    <ProjectsSection />
+    <ContactUsSection />
+  </main>
+  <Footer />
+</PageTemplate>
