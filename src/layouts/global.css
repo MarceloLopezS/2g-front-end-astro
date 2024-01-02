@@ -2,21 +2,25 @@
   font-family: "Inter Tight";
   font-weight: 300;
   src: url("../shared/assets/fonts/InterTight-Light.woff2") format("woff2");
+  font-display: swap;
 }
 @font-face {
   font-family: "Inter Tight";
   font-weight: 400;
   src: url("../shared/assets/fonts/InterTight-Regular.woff2") format("woff2");
+  font-display: swap;
 }
 @font-face {
   font-family: "Inter Tight";
   font-weight: 700;
   src: url("../shared/assets/fonts/InterTight-Bold.woff2") format("woff2");
+  font-display: swap;
 }
 @font-face {
   font-family: "Inter Tight";
   font-weight: 800;
   src: url("../shared/assets/fonts/InterTight-ExtraBold.woff2") format("woff2");
+  font-display: swap;
 }
 
 :root {
