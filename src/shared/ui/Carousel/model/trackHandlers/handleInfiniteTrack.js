@@ -23,12 +23,12 @@ const setTrackLength = (
 
   if (flowAxis === HORIZONTAL) {
     carouselTrack.style.width = `${totalSlides * itemPercentage}%`
-    ;[...slides].forEach(slide => (slide.style.width = `${100 / slidesInView}`))
+      ;[...slides].forEach(slide => (slide.style.width = `${100 / slidesInView}`))
   } else if (flowAxis === VERTICAL) {
     carouselTrack.style.height = `${totalSlides * itemPercentage}%`
-    ;[...slides].forEach(
-      slide => (slide.style.height = `${100 / slidesInView}`)
-    )
+      ;[...slides].forEach(
+        slide => (slide.style.height = `${100 / slidesInView}`)
+      )
   }
 }
 
@@ -71,9 +71,8 @@ const adjustTrackPosition = (
     carouselTrack.style.transition = "none"
     carouselTrack.insertAdjacentElement(nextSlideInsertionPlace, slideToInsert)
     if (totalSlides > 2) {
-      carouselTrack.style.transform = `translate${flowAxis}(-${
-        100 / totalSlides
-      }%)`
+      carouselTrack.style.transform = `translate${flowAxis}(-${100 / totalSlides
+        }%)`
     } else {
       carouselTrack.style.transform = `translate${flowAxis}(0%)`
     }
@@ -97,13 +96,11 @@ const nextSlide = (
   carouselTrack.style.transition = `${PROPERTY} ${DURATION}ms ${TIMING_FUNCTION}`
 
   if (totalSlides > 2) {
-    carouselTrack.style.transform = `translate${flowAxis}(${flowDirection}${
-      flowDirection === NEGATIVE ? (100 / totalSlides) * 2 : 0
-    }%)`
+    carouselTrack.style.transform = `translate${flowAxis}(${flowDirection}${flowDirection === NEGATIVE ? (100 / totalSlides) * 2 : 0
+      }%)`
   } else {
-    carouselTrack.style.transform = `translate${flowAxis}(${flowDirection}${
-      flowDirection === NEGATIVE ? 100 / totalSlides : 0
-    }%)`
+    carouselTrack.style.transform = `translate${flowAxis}(${flowDirection}${flowDirection === NEGATIVE ? 100 / totalSlides : 0
+      }%)`
   }
 
   const trackAdjustTimeout = adjustTrackPosition(
@@ -128,10 +125,10 @@ const handleInfiniteTrack = (
   )
 
   const slidePass = flowDirection =>
-    (trackAdjustTimeout = nextSlide(
-      { carouselTrack, slides, prevButton, nextButton },
-      { flowAxis, flowDirection }
-    ))
+  (trackAdjustTimeout = nextSlide(
+    { carouselTrack, slides, prevButton, nextButton },
+    { flowAxis, flowDirection }
+  ))
   const toPrevSlide = () =>
     slidePass(flowDirection === NEGATIVE ? POSITIVE : NEGATIVE)
   const toNextSlide = () =>
@@ -150,24 +147,31 @@ const handleInfiniteTrack = (
   }
 
   if (pauseOnView) {
+    const totalSlides = slides.length
     const options =
       window.innerWidth <= 1008
         ? {
-            root: null,
-            rootMargin: `-10% 0px 10% 0px`,
-            threshold: 0.12
-          }
+          root: null,
+          rootMargin: `-10% ${100 / totalSlides
+            }% 10% ${100 / (totalSlides - maxItemsOnView)
+            }%`,
+          threshold: 0.12
+        }
         : window.innerWidth <= 1300
           ? {
-              root: null,
-              rootMargin: `0px 0px 10% 0px`,
-              threshold: 0.4
-            }
+            root: null,
+            rootMargin: `0px ${100 / totalSlides
+              }% 10% ${100 / (totalSlides - maxItemsOnView)
+              }%`,
+            threshold: 0.32
+          }
           : {
-              root: null,
-              rootMargin: `0px 0px 10% 0px`,
-              threshold: 0.45
-            }
+            root: null,
+            rootMargin: `0px ${100 / totalSlides
+              }% 10% ${100 / (totalSlides - maxItemsOnView)
+              }%`,
+            threshold: 0.45
+          }
 
     trackObserver = new IntersectionObserver((entries, observer) => {
       entries[0].isIntersecting
@@ -176,6 +180,8 @@ const handleInfiniteTrack = (
     }, options)
 
     trackObserver.observe(carouselTrack)
+  } else {
+    setCarouselInterval()
   }
 
   return function autoSlideCleanup() {
