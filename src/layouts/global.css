@@ -52,6 +52,7 @@
   --clr-accent-bg-opacity-75: hsl(212, 0%, 55%, 0.075);
   --clr-accent-bg-opacity-275: hsl(212, 0%, 55%, 0.275);
 
+  --clr-bg-hero-media: hsl(212, 5%, 12%);
   --clr-bg-hero-section: var(--clr-bg-opacity-550);
   --clr-bg-sections: hsl(212, 70%, 6%, 0.85);
 
