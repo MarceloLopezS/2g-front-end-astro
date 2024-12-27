@@ -1,15 +1,15 @@
-import { getDomElement, getAllDomElements } from "../../../shared/utils/pure";
+import { getDomElement, getAllDomElements } from "../../../shared/utils/pure"
 
 const toggleProjectExtraInfo = ({
   cardSelector,
   cardBodySelector,
   cardInfoButtonSelector
 }) => {
-  return (event) => {
-    if (event.target.closest(cardInfoButtonSelector) == null) return;
+  return event => {
+    if (event.target.closest(cardInfoButtonSelector) == null) return
 
-    const card = event.target.closest(cardSelector);
-    const bodyDivs = getAllDomElements(cardBodySelector, card);
+    const card = event.target.closest(cardSelector)
+    const bodyDivs = getAllDomElements(cardBodySelector, card)
 
     bodyDivs.forEach(div => div.toggleAttribute("data-show"))
   }
@@ -21,15 +21,16 @@ const handleProjectExtraInfo = ({
   cardBodySelector,
   cardInfoButtonSelector
 }) => {
-  const projectsGrid = getDomElement(projectsWrapper);
+  const projectsGrid = getDomElement(projectsWrapper)
 
   projectsGrid.addEventListener(
-    "click", toggleProjectExtraInfo({
+    "click",
+    toggleProjectExtraInfo({
       cardSelector,
       cardBodySelector,
       cardInfoButtonSelector
     })
-  );
+  )
 }
 
 export default handleProjectExtraInfo

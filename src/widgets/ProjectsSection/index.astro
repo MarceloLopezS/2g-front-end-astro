@@ -1,7 +1,7 @@
 ---
-import Intro from "./ui/Intro/Intro.astro";
-import ProjectsGrid from "./ui/ProjectsGrid/ProjectsGrid.astro";
-import ProjectsSection from "./ui/ProjectsSection/ProjectsSection.astro";
+import Intro from "./ui/Intro/Intro.astro"
+import ProjectsGrid from "./ui/ProjectsGrid/ProjectsGrid.astro"
+import ProjectsSection from "./ui/ProjectsSection/ProjectsSection.astro"
 ---
 
 <ProjectsSection>
@@ -14,14 +14,14 @@ import ProjectsSection from "./ui/ProjectsSection/ProjectsSection.astro";
     PROJECTS_WRAPPER,
     PROJECT_CARDS,
     PROJECT_CARD_BODY,
-    PROJECT_CARD_INFO_BUTTON,
-  } from "./config/DOMSelectors";
-  import handleProjectExtraInfo from "./model/handleProjectExtraInfo";
+    PROJECT_CARD_INFO_BUTTON
+  } from "./config/DOMSelectors"
+  import handleProjectExtraInfo from "./model/handleProjectExtraInfo"
 
   handleProjectExtraInfo({
     projectsWrapper: PROJECTS_WRAPPER,
     cardSelector: PROJECT_CARDS,
     cardBodySelector: PROJECT_CARD_BODY,
-    cardInfoButtonSelector: PROJECT_CARD_INFO_BUTTON,
-  });
+    cardInfoButtonSelector: PROJECT_CARD_INFO_BUTTON
+  })
 </script>

@@ -1,1 +1,1 @@
-export const SELECT = "select[data-mls-select]";
+export const SELECT = "select[data-mls-select]"

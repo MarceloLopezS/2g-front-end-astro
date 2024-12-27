@@ -1,31 +1,31 @@
-import { getAllDomElements } from "../../../shared/utils/pure";
-import { MAIN_SECTIONS_OPTIONS } from "../config/ObserverOptions";
+import { getAllDomElements } from "../../../shared/utils/pure"
+import { MAIN_SECTIONS_OPTIONS } from "../config/ObserverOptions"
 
-const setActiveNavLink = (navAnchorsSelector) => (entries) => {
-  const navAnchors = getAllDomElements(navAnchorsSelector);
+const setActiveNavLink = navAnchorsSelector => entries => {
+  const navAnchors = getAllDomElements(navAnchorsSelector)
 
   if (navAnchors.length < 0) {
     console.warn(
       "There are no selected anchors in Navbar. Can't track an active section."
-    );
+    )
     return
   }
 
   entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
+    if (!entry.isIntersecting) return
 
     navAnchors.forEach(anchor => {
-      const anchorHref = anchor.getAttribute('href');
+      const anchorHref = anchor.getAttribute("href")
 
       anchorHref.includes(entry.target.id)
-        ? anchor.parentElement.classList.add('active')
-        : anchor.parentElement.classList.remove('active')
+        ? anchor.parentElement.classList.add("active")
+        : anchor.parentElement.classList.remove("active")
     })
   })
 }
 
 const displayActiveSection = (navAnchorsSelector, sectionsSelector) => {
-  const mainSections = getAllDomElements(sectionsSelector);
+  const mainSections = getAllDomElements(sectionsSelector)
 
   if (mainSections.length < 0) {
     console.warn(
@@ -35,7 +35,8 @@ const displayActiveSection = (navAnchorsSelector, sectionsSelector) => {
   }
 
   const sectionsObserver = new IntersectionObserver(
-    setActiveNavLink(navAnchorsSelector), MAIN_SECTIONS_OPTIONS
+    setActiveNavLink(navAnchorsSelector),
+    MAIN_SECTIONS_OPTIONS
   )
 
   mainSections.forEach(section => {

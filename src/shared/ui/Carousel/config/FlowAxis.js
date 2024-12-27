@@ -1,2 +1,2 @@
-export const HORIZONTAL = "X";
-export const VERTICAL = "Y";
+export const HORIZONTAL = "X"
+export const VERTICAL = "Y"

@@ -1,4 +1,4 @@
-export const getFormattedOptions = (optionElements) => {
+export const getFormattedOptions = optionElements => {
   return [...optionElements].map(optionElement => {
     return {
       element: optionElement,
@@ -9,16 +9,11 @@ export const getFormattedOptions = (optionElements) => {
   })
 }
 
-export const preventKeyDefault = (event) => {
+export const preventKeyDefault = event => {
   if (
-    [
-      "Space",
-      "ArrowUp",
-      "ArrowDown",
-      "Escape",
-      "Enter"
-    ].indexOf(event.code) > -1
+    ["Space", "ArrowUp", "ArrowDown", "Escape", "Enter"].indexOf(event.code) >
+    -1
   ) {
-    event.preventDefault();
+    event.preventDefault()
   }
 }
