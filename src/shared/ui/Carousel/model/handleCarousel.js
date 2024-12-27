@@ -30,31 +30,34 @@ const handleCarousel = (carousel) => {
     return
   }
 
-  if (trackType === "linear") {
-    const maxItemsOnView =
-      carousel.getAttribute("data-max-items-on-view") ?? 1;
-    const prevButton = getDomElement(
-      flowDirection === NEGATIVE ? PREV_BUTTON : NEXT_BUTTON,
-      carousel
-    );
-    const nextButton = getDomElement(
-      flowDirection === NEGATIVE ? NEXT_BUTTON : PREV_BUTTON,
-      carousel
-    );
+  const maxItemsOnView =
+    carousel.getAttribute("data-max-items-on-view") ?? 1;
+  const prevButton = getDomElement(
+    flowDirection === NEGATIVE ? PREV_BUTTON : NEXT_BUTTON,
+    carousel
+  );
+  const nextButton = getDomElement(
+    flowDirection === NEGATIVE ? NEXT_BUTTON : PREV_BUTTON,
+    carousel
+  );
 
+  if (trackType === "linear") {
     // return handler cleanUp Function
     return handleLinearTrack(
       { carouselTrack, slides, prevButton, nextButton },
       { flowAxis, flowDirection, maxItemsOnView }
     )
   }
+
   if (trackType === "infinite") {
     const autoSlideDelay = carousel.getAttribute("data-auto-slide-delay");
+    const pauseOnView =
+      carousel.getAttribute("data-pause-on-view") === "enabled"
 
     // return handler cleanUp Function
     return handleInfiniteTrack(
-      { carouselTrack, slides },
-      { flowAxis, flowDirection, autoSlideDelay }
+      { carouselTrack, slides, prevButton, nextButton },
+      { flowAxis, flowDirection, maxItemsOnView, autoSlideDelay, pauseOnView }
     )
   }
 }

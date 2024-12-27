@@ -1,75 +1,77 @@
 ---
-import Carousel from "./ui/Carousel.astro";
+import Carousel from "./ui/Carousel.astro"
 
 interface Props {
-  id?: string;
-  className?: string;
-  direction: "to top" | "to bottom" | "to left" | "to right";
-  trackOptions: {
-    type: "linear" | "infinite";
-    autoSlideDelay?: number; // In milliseconds
-    maxItemsOnView?: number; // Integer
-  };
+	id?: string
+	className?: string
+	direction: "to top" | "to bottom" | "to left" | "to right"
+	trackOptions: {
+		type: "linear" | "infinite"
+		showNavButtons: boolean
+		maxItemsOnView?: number // Integer
+		autoSlideDelay?: number // In milliseconds
+		pauseOnView?: boolean
+	}
 }
 
-const { id, className, direction, trackOptions } = Astro.props;
+const { id, className, direction, trackOptions } = Astro.props
 ---
 
 <Carousel
-  id={id}
-  className={className}
-  direction={direction}
-  trackOptions={trackOptions}
+	id={id}
+	className={className}
+	direction={direction}
+	trackOptions={trackOptions}
 >
-  <slot />
+	<slot />
 </Carousel>
 
 <script>
-  import { CAROUSELS } from "./config/DOMSelectors";
-  import {
-    XS_BREAKPOINT,
-    S_BREAKPOINT,
-    L_BREAKPOINT,
-    XL_BREAKPOINT,
-    XXL_BREAKPOINT,
-  } from "./config/ScreenSizeBreakpoints";
-  import { getAllDomElements } from "../../utils/pure";
-  import handleCarousel from "./model/handleCarousel";
+	import { CAROUSELS } from "./config/DOMSelectors"
+	import {
+		XS_BREAKPOINT,
+		S_BREAKPOINT,
+		L_BREAKPOINT,
+		XL_BREAKPOINT,
+		XXL_BREAKPOINT
+	} from "./config/ScreenSizeBreakpoints"
+	import { getAllDomElements } from "../../utils/pure"
+	import handleCarousel from "./model/handleCarousel"
 
-  let carouselCleanUps;
+	let carouselCleanUps
 
-  const handleAllCarousels = (carouselsSelector) => {
-    let cleanUpFunctions = [];
-    getAllDomElements(carouselsSelector).forEach((carousel) => {
-      cleanUpFunctions.push(handleCarousel(carousel));
-    });
+	const handleAllCarousels = carouselsSelector => {
+		let cleanUpFunctions = []
+		getAllDomElements(carouselsSelector).forEach(carousel => {
+			cleanUpFunctions.push(handleCarousel(carousel))
+		})
 
-    return cleanUpFunctions;
-  };
+		return cleanUpFunctions
+	}
 
-  const resetCarousels = (carouselsSelector) => {
-    return () => {
-      carouselCleanUps.forEach((cleanUp) => {
-        if (typeof cleanUp === "function") cleanUp();
-      });
-      carouselCleanUps = handleAllCarousels(carouselsSelector);
-    };
-  };
+	const resetCarousels = carouselsSelector => {
+		return () => {
+			carouselCleanUps.forEach(cleanUp => {
+				if (typeof cleanUp === "function") cleanUp()
+			})
+			carouselCleanUps = handleAllCarousels(carouselsSelector)
+		}
+	}
 
-  const onQueryChange = (onChangeFunction, ...mediaQueries) => {
-    mediaQueries.forEach((query) =>
-      query.addEventListener("change", onChangeFunction),
-    );
-  };
+	const onQueryChange = (onChangeFunction, ...mediaQueries) => {
+		mediaQueries.forEach(query =>
+			query.addEventListener("change", onChangeFunction)
+		)
+	}
 
-  carouselCleanUps = handleAllCarousels(CAROUSELS);
-  const mediaQueries = [
-    matchMedia(XS_BREAKPOINT),
-    matchMedia(S_BREAKPOINT),
-    matchMedia(L_BREAKPOINT),
-    matchMedia(XL_BREAKPOINT),
-    matchMedia(XXL_BREAKPOINT),
-  ];
+	carouselCleanUps = handleAllCarousels(CAROUSELS)
+	const mediaQueries = [
+		matchMedia(XS_BREAKPOINT),
+		matchMedia(S_BREAKPOINT),
+		matchMedia(L_BREAKPOINT),
+		matchMedia(XL_BREAKPOINT),
+		matchMedia(XXL_BREAKPOINT)
+	]
 
-  onQueryChange(resetCarousels(CAROUSELS), ...mediaQueries);
+	onQueryChange(resetCarousels(CAROUSELS), ...mediaQueries)
 </script>
