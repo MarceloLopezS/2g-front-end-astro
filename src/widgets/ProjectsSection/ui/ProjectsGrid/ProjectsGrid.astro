@@ -3,125 +3,139 @@ import "./ProjectsGrid.css"
 import Card from "../Card/Card.astro"
 import Carousel from "../../../../shared/ui/Carousel/index.astro"
 
-import proyectoSanJoseImg from "../../../../shared/assets/images/proyecto-inmobiliario.webp"
-import estacionMeteorologicaImg from "../../../../shared/assets/images/estacion-meteorologica.webp"
+import transformadoresHidrandinaImg from "../../../../shared/assets/images/contencion-transformadores-hidrandina.webp"
 import renovacionLobbyCostaDelSolImg from "../../../../shared/assets/images/renovacion-lobby-costa-del-sol.webp"
-import proyectoLagunaSanNicolasImg from "../../../../shared/assets/images/proyecto-laguna-san-nicolas.webp"
-import cajerosCajaPiuraImg from "../../../../shared/assets/images/cajeros-caja-piura.webp"
-import costaDelSolImg from "../../../../shared/assets/images/remodelacion-hotel-costa-del-sol.webp"
+import renovacionEstructuralCajaPiura from "../../../../shared/assets/images/renovacion-estructural-caja-piura.webp"
 import sistemaBombeoImg from "../../../../shared/assets/images/diseño-sistema-rebombeo.webp"
+import estacionMeteorologicaImg from "../../../../shared/assets/images/estacion-meteorologica.webp"
+import proyectoSanJoseImg from "../../../../shared/assets/images/proyecto-inmobiliario.webp"
+import costaDelSolImg from "../../../../shared/assets/images/remodelacion-hotel-costa-del-sol.webp"
+import renovacionElectricaCajaPiura from "../../../../shared/assets/images/renovacion-sistemas-electricos-caja-piura.webp"
 ---
 
 <section class="projects__wrapper">
-  <Carousel
-    direction="to left"
-    trackOptions={{
-      type: "infinite",
-      maxItemsOnView: 4,
-      showNavButtons: true,
-      pauseOnView: true,
-      autoSlideDelay: 5000
-    }}
-  >
-    <Card
-      mediaSrc={proyectoSanJoseImg.src}
-      mediaAltText="Proyecto Inmobiliario Vica World Global S.A.C"
-      projectType="Diseño - Construcción"
-      projectEmployer="Vica World Global S.A.C"
-      projectStudyCaseParagraphs={[
-        "Levantamiento topográfico y movimiento de tierras para la construcción de nuevos proyectos inmobiliarios.",
-        "Residencial San José - Namora - Cajamarca"
-      ]}
-      projectDescriptionParagraphs={[
-        "Vica Work Global S.A.C es una empresa inmobiliaria reconocida en la ciudad de Cajamarca, con inicio de actividades en el año 2014.",
-        "El proyecto consistió en el acondicionamiento del área para una próxima residencial, realizándose trabajos de: levantamiento topográfico, preparación del terreno, corte, relleno y trazado, demarcación de áreas comunes e instalación de un portón de ingreso.",
-        "El cliente expresó su satisfacción con los trabajos y el servicio realizado, reconociendo nuestro compromiso y trayectoria."
-      ]}
-    />
-    <Card
-      mediaSrc={estacionMeteorologicaImg.src}
-      mediaAltText="Cerco perimétrico Estación Meteorológica Automática Chugur"
-      projectType="Construcción"
-      projectEmployer="Servicio Nacional Meteorología e Hidrología"
-      projectStudyCaseParagraphs={[
-        "Reubicación, instalación de cerco perimetral y ejecución de mantenimiento preventivo para la Estación Meteorológica Automática Chugur - Hualgayoc - Cajamarca"
-      ]}
-      projectDescriptionParagraphs={[
-        "El SENAMHI es un organismo público especializado  en las áreas de meteorología, hidrología, agrometeorología y asuntos ambientales.",
-        "El proyecto consistió en la reubicación de una torre de alta tensión y la instalación de un cerco perimétrico. Se llevaron a cabo trabajos de alto riego (trabajos en altura), pero siempre cumpliendo con los estándares de seguridad por parte de nuestros trabajadores.",
-        "El cliente quedó satisfecho con el trabajo final, siendo un referente importante en nuestra cartera."
-      ]}
-    />
-    <Card
-      mediaSrc={renovacionLobbyCostaDelSolImg.src}
-      mediaAltText="Renovación de lobby del hotel Costa del Sol Cajamarca - Wyndham"
-      projectType="Construcción"
-      projectEmployer="Costa del Sol Wyndham"
-      projectStudyCaseParagraphs={[
-        "Renovación integral del lobby y bar en el Hotel Costa del Sol Wyndham - Cajamarca"
-      ]}
-      projectDescriptionParagraphs={[
-        "La empresa hotelera Costa del Sol - Wyndham goza de un destacado reconocimiento en la ciudad de Cajamarca y a nivel nacional. Con un total de 11 sucursales, se consolida como una de las cadenas hoteleras más prominentes y relevantes del país.",
-        "La iniciativa abarcó la renovación completa del lobby y bar del hotel, orientada hacia una modernización de sus espacios sociales y adaptada a las expectativas de las nuevas generaciones.",
-        "La entrega del proyecto se llevó a cabo cumpliendo rigurosos estándares de calidad, seguridad y respeto al medio ambiente, aspectos fundamentales que garantizan la plena satisfacción de nuestros clientes."
-      ]}
-    />
-    <Card
-      mediaSrc={proyectoLagunaSanNicolasImg.src}
-      mediaAltText="Proyecto inmobiliario en Laguna San Nicolás - Namora - Cajamarca."
-      projectType="Diseño - Construcción"
-      projectEmployer="Grupo Inmobiliario Gaia S.A.C."
-      projectStudyCaseParagraphs={[
-        "Diseño, planificación y ejecución de infraestructuras para la sostenibilidad y seguridad residencial.",
-        "Proyecto inmobiliario en Laguna San Nicolás - Namora - Cajamarca"
-      ]}
-      projectDescriptionParagraphs={[
-        "Grupo Inmobiliario Gaia S.A.C. es una empresa recientemente establecida en la ciudad de Cajamarca, iniciando sus operaciones en el año 2022.",
-        "El proyecto se centró en la preparación de la zona turística para una futura área residencial, abarcando diversas tareas como: levantamiento topográfico y acondicionamiento del terreno, así como la delimitación y demarcación de las áreas comunes.",
-        "El grupo inmobiliario expresó su plena satisfacción con los trabajos y el servicio proporcionado, destacando el reconocimiento y aceptación positiva por parte de la población local."
-      ]}
-    />
-    <Card
-      mediaSrc={cajerosCajaPiuraImg.src}
-      mediaAltText="Instalación de cajeros en CMAC Piura S.A.C."
-      projectType="Diseño - Construcción"
-      projectEmployer="CMAC Piura S.A.C."
-      projectStudyCaseParagraphs={[
-        "Servicio de reubicación, instalación y mantenimiento del espacio integral de tres cajeros automáticos y un kiosco multifuncional."
-      ]}
-      projectDescriptionParagraphs={[
-        "La Caja Municipal de Ahorro y Crédito de Piura, fundada en 1982, destaca como una institución financiera peruana centrada en la promoción de la inclusión financiera y el respaldo a pequeñas y medianas empresas.",
-        "El objetivo principal del servicio se centró en ampliar la disponibilidad de cajeros automáticos en la agencia, mediante la implementación de un Cajero regular adicional y un Cajero Multifuncional.",
-        "Se realizó una reestructuración de los espacios designados para un total de tres cajeros automáticos, cumpliendo de manera integral con las normativas de seguridad establecidas por Asbanc (Asociación de Bancos del Perú), así como con las normativas técnicas europeas aplicables a los cajeros automáticos."
-      ]}
-    />
-    <Card
-      mediaSrc={costaDelSolImg.src}
-      mediaAltText="Remodelación Costa del Sol Cajamarca - Wyndham"
-      projectType="Diseño - Construcción"
-      projectEmployer="Costa del Sol Wyndham"
-      projectStudyCaseParagraphs={[
-        "Remodelación general de piso salón y habitaciones del Hotel Costa del Sol Wyndham - Cajamarca"
-      ]}
-      projectDescriptionParagraphs={[
-        "La empresa hotelera Costa del Sol - Wyndham, es reconocida en la ciudad de Cajamarca y a nivel nacional. Cuenta con 11 sucursales, siendo una de las cadenas hoteleras más importantes del país.",
-        "El proyecto consistió en la remodelación de espacios interiores del hotel, realizándose trabajos de: instalación del piso vinil, pintado de interiores, trabajos eléctricos y acabados finales.",
-        "Este proyecto fue entregado cumpliendo los estándares de calidad, seguridad y medio ambiente; los cuales son transcendentales para la satisfacción de nuestros clientes."
-      ]}
-    />
-    <Card
-      mediaSrc={sistemaBombeoImg.src}
-      mediaAltText="Sistema de rebombeo - Minera Yanaocha"
-      projectType="Diseño"
-      projectEmployer="Minera Yanacocha"
-      projectStudyCaseParagraphs={[
-        "Evaluación del sistema de tanques de rebombeo de agua en el tajo tapado Oeste de Minera Yanacocha - Cajamarca"
-      ]}
-      projectDescriptionParagraphs={[
-        "Minera Yanacocha es una mina aurífera considerada la más grande de América del Sur y la segunda a nivel mundial.",
-        "El proyecto tuvo la finalidad de evaluar el funcionamiento hidráulico del sistema de tanques de rebombeo del tajo (Tapado Oeste). Se obtuvieron referencias a tiempos inoperativos y, en consecuencia, presentamos una alternativa de solución de ingeniería, obteniendo importantes mejoras en la optimización de drenaje.",
-        "El proyecto generó la satisfacción nuestra y del cliente, considerándose un éxito por ambas partes."
-      ]}
-    />
-  </Carousel>
+	<Carousel
+		direction="to left"
+		trackOptions={{
+			type: "infinite",
+			maxItemsOnView: 4,
+			showNavButtons: true,
+			pauseOnView: true,
+			autoSlideDelay: 5000
+		}}
+	>
+		<Card
+			mediaSrc={transformadoresHidrandinaImg.src}
+			mediaAltText="Sistema de contención de transformadores - Hidrandina"
+			projectType="Diseño - Construcción"
+			projectEmployer="Hidrandina"
+			projectStudyCaseParagraphs={[
+				"Diseño, fabricación e instalación de sistemas de contención para transformadores en Hidrandina - Cajamarca."
+			]}
+			projectDescriptionParagraphs={[
+				"Hidrandina, fundada en 1983, es una empresa de servicio público que se dedica a la distribución y comercialización de energía eléctrica, en las regiones de Ancash, La Libertad y parte de Cajamarca.",
+				"El proyecto consistió en la implementación de sistemas de contención de aceites dieléctricos para transformadores de 25 MVA, 3.75 MVA, 200 KVA y 50 KVA, diseñados según el dimensionamiento requerido por la OEFA (Organismo de Evaluación y Fiscalización Ambiental).",
+				"Se desarrolló en un entorno controlado de alto riesgo, cumpliendo estrictamente con la normativa de seguridad y medio ambiente vigentes y garantizando los estándares de calidad comprometidos."
+			]}
+		/>
+		<Card
+			mediaSrc={renovacionLobbyCostaDelSolImg.src}
+			mediaAltText="Renovación de lobby del hotel Costa del Sol Cajamarca - Wyndham"
+			projectType="Construcción"
+			projectEmployer="Costa del Sol Wyndham"
+			projectStudyCaseParagraphs={[
+				"Renovación integral del lobby y bar en el Hotel Costa del Sol Wyndham - Cajamarca"
+			]}
+			projectDescriptionParagraphs={[
+				"La empresa hotelera Costa del Sol - Wyndham goza de un destacado reconocimiento en la ciudad de Cajamarca y a nivel nacional. Con un total de 11 sucursales, se consolida como una de las cadenas hoteleras más prominentes y relevantes del país.",
+				"La iniciativa abarcó la renovación completa del lobby y bar del hotel, orientada hacia una modernización de sus espacios sociales y adaptada a las expectativas de las nuevas generaciones.",
+				"La entrega del proyecto se llevó a cabo cumpliendo rigurosos estándares de calidad, seguridad y respeto al medio ambiente, aspectos fundamentales que garantizan la plena satisfacción de nuestros clientes."
+			]}
+		/>
+		<Card
+			mediaSrc={renovacionEstructuralCajaPiura.src}
+			mediaAltText="Evaluación estructural - CMAC Piura - San Ignacio"
+			projectType="Diseño"
+			projectEmployer="CMAC Piura - Distrito y provincia de San Ignacio"
+			projectStudyCaseParagraphs={[
+				"Servicio de evaluación estructural del local de la agencia de la CMAC PIURA S.A.C."
+			]}
+			projectDescriptionParagraphs={[
+				"La Caja Municipal de Ahorro y Crédito de Piura, fundada en 1982, destaca como una institución financiera peruana centrada en la promoción de la inclusión financiera y el respaldo a pequeñas y medianas empresas.",
+				"Se realizó un análisis con el objetivo de evaluar el sistema estructural de la edificación, realizando una inspección detallada para identificar posibles deficiencias, debilidades o áreas de mejora en la estructura existente. El análisis se llevó a cabo cumpliendo con la norma E-030 sismorresistente del Reglamento Nacional de Edificaciones.",
+				"Recibimos el reconocimiento y satisfacción de CMAC PIURA S.A.C. por el trabajo ejecutado, destacando la calidad y precisión del análisis estructural realizado."
+			]}
+		/>
+		<Card
+			mediaSrc={sistemaBombeoImg.src}
+			mediaAltText="Sistema de rebombeo - Minera Yanaocha"
+			projectType="Diseño"
+			projectEmployer="Minera Yanacocha"
+			projectStudyCaseParagraphs={[
+				"Evaluación del sistema de tanques de rebombeo de agua en el tajo tapado Oeste de Minera Yanacocha - Cajamarca"
+			]}
+			projectDescriptionParagraphs={[
+				"Minera Yanacocha es una mina aurífera considerada la más grande de América del Sur y la segunda a nivel mundial.",
+				"El proyecto tuvo la finalidad de evaluar el funcionamiento hidráulico del sistema de tanques de rebombeo del tajo (Tapado Oeste). Se obtuvieron referencias a tiempos inoperativos y, en consecuencia, presentamos una alternativa de solución de ingeniería, obteniendo importantes mejoras en la optimización de drenaje.",
+				"El proyecto generó la satisfacción nuestra y del cliente, considerándose un éxito por ambas partes."
+			]}
+		/>
+		<Card
+			mediaSrc={estacionMeteorologicaImg.src}
+			mediaAltText="Cerco perimétrico Estación Meteorológica Automática Chugur"
+			projectType="Construcción"
+			projectEmployer="Servicio Nacional Meteorología e Hidrología"
+			projectStudyCaseParagraphs={[
+				"Reubicación, instalación de cerco perimetral y ejecución de mantenimiento preventivo para la Estación Meteorológica Automática Chugur - Hualgayoc - Cajamarca"
+			]}
+			projectDescriptionParagraphs={[
+				"El SENAMHI es un organismo público especializado  en las áreas de meteorología, hidrología, agrometeorología y asuntos ambientales.",
+				"El proyecto consistió en la reubicación de una torre de alta tensión y la instalación de un cerco perimétrico. Se llevaron a cabo trabajos de alto riego (trabajos en altura), pero siempre cumpliendo con los estándares de seguridad por parte de nuestros trabajadores.",
+				"El cliente quedó satisfecho con el trabajo final, siendo un referente importante en nuestra cartera."
+			]}
+		/>
+		<Card
+			mediaSrc={proyectoSanJoseImg.src}
+			mediaAltText="Proyecto Inmobiliario Vica World Global S.A.C"
+			projectType="Diseño - Construcción"
+			projectEmployer="Vica World Global S.A.C"
+			projectStudyCaseParagraphs={[
+				"Levantamiento topográfico y movimiento de tierras para la construcción de nuevos proyectos inmobiliarios.",
+				"Residencial San José - Namora - Cajamarca"
+			]}
+			projectDescriptionParagraphs={[
+				"Vica Work Global S.A.C es una empresa inmobiliaria reconocida en la ciudad de Cajamarca, con inicio de actividades en el año 2014.",
+				"El proyecto consistió en el acondicionamiento del área para una próxima residencial, realizándose trabajos de: levantamiento topográfico, preparación del terreno, corte, relleno y trazado, demarcación de áreas comunes e instalación de un portón de ingreso.",
+				"El cliente expresó su satisfacción con los trabajos y el servicio realizado, reconociendo nuestro compromiso y trayectoria."
+			]}
+		/>
+		<Card
+			mediaSrc={costaDelSolImg.src}
+			mediaAltText="Remodelación Costa del Sol Cajamarca - Wyndham"
+			projectType="Diseño - Construcción"
+			projectEmployer="Costa del Sol Wyndham"
+			projectStudyCaseParagraphs={[
+				"Remodelación general de piso salón y habitaciones del Hotel Costa del Sol Wyndham - Cajamarca"
+			]}
+			projectDescriptionParagraphs={[
+				"La empresa hotelera Costa del Sol - Wyndham, es reconocida en la ciudad de Cajamarca y a nivel nacional. Cuenta con 11 sucursales, siendo una de las cadenas hoteleras más importantes del país.",
+				"El proyecto consistió en la remodelación de espacios interiores del hotel, realizándose trabajos de: instalación del piso vinil, pintado de interiores, trabajos eléctricos y acabados finales.",
+				"Este proyecto fue entregado cumpliendo los estándares de calidad, seguridad y medio ambiente; los cuales son transcendentales para la satisfacción de nuestros clientes."
+			]}
+		/>
+		<Card
+			mediaSrc={renovacionElectricaCajaPiura.src}
+			mediaAltText="Remodelación de sistemas eléctricos - CMAC Piura - Cajamarca"
+			projectType="Diseño - Construcción"
+			projectEmployer="CMAC Piura - MegaPlaza - Cajamarca"
+			projectStudyCaseParagraphs={[
+				"Remodelación de Sistemas Eléctricos en la agencia CMAC PIURA - Megaplaza - Cajamarca."
+			]}
+			projectDescriptionParagraphs={[
+				"La Caja Municipal de Ahorro y Crédito de Piura, fundada en 1982, destaca como una institución financiera peruana centrada en la promoción de la inclusión financiera y el respaldo a pequeñas y medianas empresas.",
+				"El proyecto consistió en la remodelación general del sistema eléctrico en la agencia, con el objetivo de hacerlo más eficiente y cumplir con el Código Nacional de Electricidad. El nuevo sistema cumple ahora con los nuevos estándares de sistemas eléctricos en agencias bancarias, incluyendo cargas críticas para iluminación, climatización, sistemas de seguridad y otros equipos esenciales.",
+				"Considerando lo riesgoso de la actividad y el nivel de exposición, se implementaron controles que garanticen la seguridad personal y patrimonial de nuestro cliente."
+			]}
+		/>
+	</Carousel>
 </section>
