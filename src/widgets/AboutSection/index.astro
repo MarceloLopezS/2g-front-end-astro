@@ -1,8 +1,8 @@
 ---
-import SectionWrapper from "./ui/SectionWrapper/SectionWrapper.astro";
-import Description from "./ui/Description/Description.astro";
-import MainPicture from "./ui/MainPicture/MainPicture.astro";
-import Statistics from "./ui/Statistics/Statistics.astro";
+import SectionWrapper from "./ui/SectionWrapper/SectionWrapper.astro"
+import Description from "./ui/Description/Description.astro"
+import MainPicture from "./ui/MainPicture/MainPicture.astro"
+import Statistics from "./ui/Statistics/Statistics.astro"
 ---
 
 <SectionWrapper>
@@ -15,15 +15,15 @@ import Statistics from "./ui/Statistics/Statistics.astro";
   import {
     DESCRIPTION_SECTION,
     DESCRIPTION_SLIDE,
-    DESCRIPTION_EXTRA_INFO_BUTTON,
-  } from "./config/DOMSelectors";
-  import handleAdditionalDescriptionToggle from "./model/handleAdditionalDescriptionToggle";
+    DESCRIPTION_EXTRA_INFO_BUTTON
+  } from "./config/DOMSelectors"
+  import handleAdditionalDescriptionToggle from "./model/handleAdditionalDescriptionToggle"
 
   const DESCRIPTION_TOGGLE_SELECTORS = {
     slidesContainerSelector: DESCRIPTION_SECTION,
     textSlidesSelector: DESCRIPTION_SLIDE,
-    extraInfoButtonSelector: DESCRIPTION_EXTRA_INFO_BUTTON,
-  };
+    extraInfoButtonSelector: DESCRIPTION_EXTRA_INFO_BUTTON
+  }
 
-  handleAdditionalDescriptionToggle(DESCRIPTION_TOGGLE_SELECTORS);
+  handleAdditionalDescriptionToggle(DESCRIPTION_TOGGLE_SELECTORS)
 </script>

@@ -1,5 +1,5 @@
 ---
-import Navbar from "./ui/Navbar.astro";
+import Navbar from "./ui/Navbar.astro"
 ---
 
 <Navbar />
@@ -15,27 +15,27 @@ import Navbar from "./ui/Navbar.astro";
     NAV_CLOSE_ICON,
     NAV_ANCHORS,
     HERO_SECTION,
-    MAIN_SECTIONS,
-  } from "./config/DOMSelectors";
-  import enableNavbarMenuToggle from "./model/enableNavbarMenuToggle";
-  import displayActiveSection from "./model/displayActiveSection";
-  import controlNavbarDisplay from "./model/controlNavbarDisplay";
+    MAIN_SECTIONS
+  } from "./config/DOMSelectors"
+  import enableNavbarMenuToggle from "./model/enableNavbarMenuToggle"
+  import displayActiveSection from "./model/displayActiveSection"
+  import controlNavbarDisplay from "./model/controlNavbarDisplay"
 
   const NAV_MENU_SELECTORS = {
     navbarSelector: NAVBAR,
     navListSelector: NAV_UNORDERED_LIST,
     navMenuTogglerSelector: NAVBAR_TOGGLE_BUTTON,
     navExpandIconSelector: NAV_EXPAND_ICON,
-    navCloseIconSelector: NAV_CLOSE_ICON,
-  };
+    navCloseIconSelector: NAV_CLOSE_ICON
+  }
   const NAV_DISPLAY_SELECTORS = {
     heroSectionSelector: HERO_SECTION,
     navbarSelector: NAVBAR,
     certificateLogoSelector: CERTIFICATE_LOGO,
-    brandLogoSelector: BRAND_LOGO,
-  };
+    brandLogoSelector: BRAND_LOGO
+  }
 
-  enableNavbarMenuToggle(NAV_MENU_SELECTORS);
-  displayActiveSection(NAV_ANCHORS, MAIN_SECTIONS);
-  controlNavbarDisplay(NAV_DISPLAY_SELECTORS);
+  enableNavbarMenuToggle(NAV_MENU_SELECTORS)
+  displayActiveSection(NAV_ANCHORS, MAIN_SECTIONS)
+  controlNavbarDisplay(NAV_DISPLAY_SELECTORS)
 </script>

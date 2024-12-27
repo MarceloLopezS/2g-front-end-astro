@@ -2,35 +2,35 @@
 import "./Carousel.css"
 
 interface Props {
-	id?: string
-	className?: string
-	direction: "to top" | "to bottom" | "to left" | "to right"
-	trackOptions: {
-		type: "linear" | "infinite"
-		showNavButtons: boolean
-		maxItemsOnView?: number // Integer
-		autoSlideDelay?: number // In milliseconds
-		pauseOnView?: boolean
-	}
+  id?: string
+  className?: string
+  direction: "to top" | "to bottom" | "to left" | "to right"
+  trackOptions: {
+    type: "linear" | "infinite"
+    showNavButtons: boolean
+    maxItemsOnView?: number // Integer
+    autoSlideDelay?: number // In milliseconds
+    pauseOnView?: boolean
+  }
 }
 
 const { id, className, direction, trackOptions } = Astro.props
 ---
 
 <section
-	id={id}
-	class={className}
-	data-mls-carousel
-	data-direction={direction}
-	data-track-type={trackOptions.type}
-	data-auto-slide-delay={trackOptions?.autoSlideDelay}
-	data-max-items-on-view={trackOptions?.maxItemsOnView}
-	data-pause-on-view={trackOptions?.pauseOnView ? "enabled" : null}
-	style="position: relative; width: 100%; height: 100%; overflow: hidden;"
+  id={id}
+  class={className}
+  data-mls-carousel
+  data-direction={direction}
+  data-track-type={trackOptions.type}
+  data-auto-slide-delay={trackOptions?.autoSlideDelay}
+  data-max-items-on-view={trackOptions?.maxItemsOnView}
+  data-pause-on-view={trackOptions?.pauseOnView ? "enabled" : null}
+  style="position: relative; width: 100%; height: 100%; overflow: hidden;"
 >
-	<button
-		data-previous
-		style=`position: absolute; display: ${
+  <button
+    data-previous
+    style=`position: absolute; display: ${
       !trackOptions.showNavButtons ? "none" : "grid"
     }${
       !trackOptions.showNavButtons ? "" : "; place-items: center"
@@ -43,34 +43,34 @@ const { id, className, direction, trackOptions } = Astro.props
     }; translate: ${
       direction === "to top" || direction === "to bottom" ? "-50% 0" : "0 -50%"
     }; padding: 0; margin: 0; border: 0; outline-color: transparent; z-index: 10; cursor: pointer;`
-	>
-		<span class="visually-hidden">Previous</span>
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			fill="currentColor"
-			viewBox="0 0 16 16"
-		>
-			<path
-				fill-rule="evenodd"
-				d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-			></path>
-		</svg>
-	</button>
-	<div
-		data-carousel-track
-		style={`width: 100%; height: 100%; display: ${
-			direction === "to top" || direction === "to bottom" ? "grid" : "flex"
-		}; ${
-			direction === "to top" || direction === "to bottom"
-				? "grid-auto-flow: row"
-				: null
-		}; nowrap; list-style: none; padding: 0; margin: 0; transition: transform 500ms ease-in-out;`}
-	>
-		<slot />
-	</div>
-	<button
-		data-next
-		style=`position: absolute; display: ${
+  >
+    <span class="visually-hidden">Previous</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+      ></path>
+    </svg>
+  </button>
+  <div
+    data-carousel-track
+    style={`width: 100%; height: 100%; display: ${
+      direction === "to top" || direction === "to bottom" ? "grid" : "flex"
+    }; ${
+      direction === "to top" || direction === "to bottom"
+        ? "grid-auto-flow: row"
+        : null
+    }; nowrap; list-style: none; padding: 0; margin: 0; transition: transform 500ms ease-in-out;`}
+  >
+    <slot />
+  </div>
+  <button
+    data-next
+    style=`position: absolute; display: ${
       !trackOptions.showNavButtons ? "none" : "grid"
     }${
       !trackOptions.showNavButtons ? "" : "; place-items: center"
@@ -83,17 +83,17 @@ const { id, className, direction, trackOptions } = Astro.props
     }; translate: ${
       direction === "to top" || direction === "to bottom" ? "50% 0" : "0 50%"
     }; padding: 0; margin: 0; border: 0; outline-color: transparent; z-index: 10; cursor: pointer;`
-	>
-		<span class="visually-hidden">Next</span>
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			fill="currentColor"
-			viewBox="0 0 16 16"
-		>
-			<path
-				fill-rule="evenodd"
-				d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-			></path>
-		</svg>
-	</button>
+  >
+    <span class="visually-hidden">Next</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+      ></path>
+    </svg>
+  </button>
 </section>

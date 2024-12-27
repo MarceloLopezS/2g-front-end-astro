@@ -1,47 +1,43 @@
-import { getDomElement } from "../../../shared/utils/pure";
+import { getDomElement } from "../../../shared/utils/pure"
 
 const addVideoSource = (videoElement, videoSrc, videoType) => {
-  const source = document.createElement('source');
+  const source = document.createElement("source")
 
-  source.src = videoSrc;
-  source.type = videoType;
+  source.src = videoSrc
+  source.type = videoType
 
   videoElement.appendChild(source)
 }
 
-const handleHeroVideoLoad = (
-  {
-    pictureSelector,
-    videoSelector,
-    videoSrc,
-    videoType = 'video/mp4',
-    videoLoadMediaQuery
-  }
-) => {
-  const mediaQuery = window.matchMedia(videoLoadMediaQuery);
+const handleHeroVideoLoad = ({
+  pictureSelector,
+  videoSelector,
+  videoSrc,
+  videoType = "video/mp4",
+  videoLoadMediaQuery
+}) => {
+  const mediaQuery = window.matchMedia(videoLoadMediaQuery)
 
-  if (!mediaQuery.matches) return;
+  if (!mediaQuery.matches) return
 
-  const bannerPicture = getDomElement(pictureSelector);
-  const bannerVideo = getDomElement(videoSelector);
+  const bannerPicture = getDomElement(pictureSelector)
+  const bannerVideo = getDomElement(videoSelector)
 
   if (!bannerPicture) {
     console.warn(
-      "Unnable to handle banner video load: "
-      + "Invalid picture selector."
-    );
+      "Unnable to handle banner video load: " + "Invalid picture selector."
+    )
     return
   }
   if (!bannerVideo) {
     console.warn(
-      "Unnable to handle banner video load: "
-      + "Invalid video selector."
-    );
+      "Unnable to handle banner video load: " + "Invalid video selector."
+    )
     return
   }
 
   addVideoSource(bannerVideo, videoSrc, videoType)
-  bannerPicture.remove();
+  bannerPicture.remove()
 }
 
 export default handleHeroVideoLoad

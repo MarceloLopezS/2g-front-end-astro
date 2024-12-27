@@ -1,7 +1,7 @@
 ---
-import ContactUsSection from "./ui/ContactUsSection.astro";
-import InfoSection from "./ui/InfoSection/InfoSection.astro";
-import FormSection from "./ui/FormSection/FormSection.astro";
+import ContactUsSection from "./ui/ContactUsSection.astro"
+import InfoSection from "./ui/InfoSection/InfoSection.astro"
+import FormSection from "./ui/FormSection/FormSection.astro"
 ---
 
 <ContactUsSection>
@@ -24,10 +24,10 @@ import FormSection from "./ui/FormSection/FormSection.astro";
     CUSTOM_SELECT_CONTAINER,
     INPUT_CONTAINER,
     SERVER_RESPONSE_CONTAINER,
-    LOADER,
-  } from "./config/DOMSelectors";
-  import handleFormSubmit from "./model/handleFormSubmit";
-  import handleInputStatusReset from "./model/handleInputStatusReset";
+    LOADER
+  } from "./config/DOMSelectors"
+  import handleFormSubmit from "./model/handleFormSubmit"
+  import handleInputStatusReset from "./model/handleInputStatusReset"
 
   handleFormSubmit(CONTACT_FORM, {
     serviceSelectSelector: SERVICES_SELECT,
@@ -37,11 +37,11 @@ import FormSection from "./ui/FormSection/FormSection.astro";
     cityInputSelector: CITY_INPUT,
     messageTextAreaSelector: MESSAGE_TEXTAREA,
     serverResponseContainerSelector: SERVER_RESPONSE_CONTAINER,
-    loaderSelector: LOADER,
-  });
+    loaderSelector: LOADER
+  })
   handleInputStatusReset({
     formSelector: CONTACT_FORM,
     inputStatusDisplayerSelector: INPUT_CONTAINER,
-    customSelectStatusDisplayerSelector: CUSTOM_SELECT_CONTAINER,
-  });
+    customSelectStatusDisplayerSelector: CUSTOM_SELECT_CONTAINER
+  })
 </script>

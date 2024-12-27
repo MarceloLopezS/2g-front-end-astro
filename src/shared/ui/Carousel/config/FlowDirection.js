@@ -1,2 +1,2 @@
-export const POSITIVE = "+";
-export const NEGATIVE = "-";
+export const POSITIVE = "+"
+export const NEGATIVE = "-"

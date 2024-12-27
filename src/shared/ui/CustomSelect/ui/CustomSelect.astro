@@ -1,19 +1,19 @@
 ---
-import "./CustomSelect.css";
+import "./CustomSelect.css"
 
 interface Props {
-  id?: string;
-  className?: string;
-  optionsArray: Array<string>;
+  id?: string
+  className?: string
+  optionsArray: Array<string>
 }
 
-const { id, className, optionsArray } = Astro.props;
+const { id, className, optionsArray } = Astro.props
 ---
 
 <select data-mls-select id={id} class={className}>
   {
     optionsArray.map((option, i) =>
-      i === 0 ? <option selected>{option}</option> : <option>{option}</option>,
+      i === 0 ? <option selected>{option}</option> : <option>{option}</option>
     )
   }
 </select>

@@ -1,13 +1,13 @@
 ---
-import "./Card.css";
+import "./Card.css"
 
 interface Props {
-  mediaSrc: string;
-  mediaAltText: string;
-  projectType: string;
-  projectEmployer: string;
-  projectStudyCaseParagraphs: Array<string>;
-  projectDescriptionParagraphs: Array<string>;
+  mediaSrc: string
+  mediaAltText: string
+  projectType: string
+  projectEmployer: string
+  projectStudyCaseParagraphs: Array<string>
+  projectDescriptionParagraphs: Array<string>
 }
 
 const {
@@ -16,8 +16,8 @@ const {
   projectType,
   projectEmployer,
   projectStudyCaseParagraphs,
-  projectDescriptionParagraphs,
-} = Astro.props;
+  projectDescriptionParagraphs
+} = Astro.props
 ---
 
 <div class="card" data-section="projects">
@@ -28,7 +28,7 @@ const {
     <p class="highlighted">{projectType}</p>
     <h3>{projectEmployer}</h3>
     <p>Caso de estudio</p>
-    {projectStudyCaseParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+    {projectStudyCaseParagraphs.map(paragraph => <p>{paragraph}</p>)}
     <button
       type="button"
       class="card__extra-info-button--toggler | btn"
@@ -38,7 +38,7 @@ const {
     </button>
   </div>
   <div class="card__body complement | text-align-justify">
-    {projectDescriptionParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+    {projectDescriptionParagraphs.map(paragraph => <p>{paragraph}</p>)}
     <button
       type="button"
       class="card__extra-info-button--toggler | btn"
