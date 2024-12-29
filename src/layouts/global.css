@@ -196,6 +196,7 @@ body {
 button {
   border: 0;
   border-radius: 0;
+  outline: 1px solid transparent;
   cursor: pointer;
 }
 
