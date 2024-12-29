@@ -1,0 +1,21 @@
+---
+interface Props {
+  className?: string
+  attributes?: astroHTML.JSX.SVGAttributes
+}
+
+const { className, attributes } = Astro.props
+---
+
+<svg
+  class={className ? className : null}
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  viewBox="0 0 40 40"
+  fill="none"
+  {...attributes}
+>
+  <path fill="#335e8e80" d="M38.9,19.8H7.5L2,39L38.9,19.8z"></path>
+  <path fill="#335e8e" d="M38.9,19.8H7.5L2,0.7L38.9,19.8z"></path>
+</svg>
