@@ -1,6 +1,8 @@
 ---
 import "./global.css"
 
+import FloatingChat from "../widgets/FloatingChat/index.astro"
+
 interface Props {
   title: string
   description: string
@@ -71,5 +73,6 @@ const { title, description } = Astro.props
   </head>
   <body>
     <slot />
+    <FloatingChat position="bottom-right" />
   </body>
 </html>
