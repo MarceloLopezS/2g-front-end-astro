@@ -2,9 +2,13 @@
 interface Props {
   className?: string
   attributes?: astroHTML.JSX.SVGAttributes
+  arrowColor?: {
+    topHalf: `#${string}`
+    bottomHalf: `#${string}`
+  }
 }
 
-const { className, attributes } = Astro.props
+const { className, arrowColor, attributes } = Astro.props
 ---
 
 <svg
@@ -16,6 +20,10 @@ const { className, attributes } = Astro.props
   fill="none"
   {...attributes}
 >
-  <path fill="#335e8e80" d="M38.9,19.8H7.5L2,39L38.9,19.8z"></path>
-  <path fill="#335e8e" d="M38.9,19.8H7.5L2,0.7L38.9,19.8z"></path>
+  <path
+    fill={arrowColor ? arrowColor.topHalf : "#00000080"}
+    d="M38.9,19.8H7.5L2,39L38.9,19.8z"></path>
+  <path
+    fill={arrowColor ? arrowColor.bottomHalf : "#000000"}
+    d="M38.9,19.8H7.5L2,0.7L38.9,19.8z"></path>
 </svg>
