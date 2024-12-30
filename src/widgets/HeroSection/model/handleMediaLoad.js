@@ -18,10 +18,10 @@ const handleHeroVideoLoad = ({
 }) => {
   const mediaQuery = window.matchMedia(videoLoadMediaQuery)
 
-  if (!mediaQuery.matches) return
-
   const bannerPicture = getDomElement(pictureSelector)
   const bannerVideo = getDomElement(videoSelector)
+
+  if (!mediaQuery.matches) return bannerVideo.remove()
 
   if (!bannerPicture) {
     console.warn(
