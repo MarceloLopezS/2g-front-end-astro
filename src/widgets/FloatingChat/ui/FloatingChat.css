@@ -18,7 +18,7 @@
   align-items: center;
   width: 3rem;
   aspect-ratio: 1;
-  background-color: var(--clr-primary-400);
+  background-color: var(--clr-whatsapp);
   padding: 0.5em;
   border-radius: 50%;
   box-shadow: var(--_dialog-box-shadow);
@@ -30,7 +30,7 @@
 .floating-chat__close-btn:focus-visible {
   background-color: color-mix(
     in oklab,
-    var(--clr-primary-400) 92%,
+    var(--clr-whatsapp) 92%,
     var(--clr-neutral-900) 8%
   );
 }
@@ -77,7 +77,7 @@
   justify-content: center;
   align-items: center;
   aspect-ratio: 1;
-  background-color: var(--clr-primary-400);
+  background-color: var(--clr-whatsapp);
   padding: 0.45em;
   border-radius: 50%;
 }
@@ -92,12 +92,12 @@
   font-size: var(--fs-floating-chat-header);
   text-align: center;
   color: var(--clr-neutral-100);
-  background-color: var(--clr-primary-400);
+  background-color: var(--clr-whatsapp);
   padding: var(--_dialog-padding);
 }
 
 .floating-chat__chatbox > .chatbox__body {
-  background-color: var(--clr-accent-100);
+  background-color: var(--clr-neutral-200);
   padding: var(--_dialog-padding);
 }
 
@@ -137,7 +137,7 @@
 }
 
 .floating-chat__user-message > button[type="submit"]:focus-visible {
-  background-color: var(--clr-accent-100);
+  background-color: var(--clr-neutral-200);
 }
 
 .floating-chat__user-message svg {
