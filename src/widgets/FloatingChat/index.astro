@@ -12,12 +12,20 @@ const { position, cssMargin } = Astro.props
 <FloatingChat position={position} cssMargin={cssMargin || null} />
 
 <script>
-  import { TOGGLER_BTN, DIALOG, CLOSE_BTN } from "./config/selectors"
+  import {
+    TOGGLER_BTN,
+    DIALOG,
+    CLOSE_BTN,
+    USER_MESSAGE_FORM,
+    USER_MESSAGE_INPUT
+  } from "./config/selectors"
   import handleFloatingChat from "./model/handleFloatingChat"
 
   handleFloatingChat({
     togglerBtnSelector: TOGGLER_BTN,
     dialogSelector: DIALOG,
-    closeBtnSelector: CLOSE_BTN
+    closeBtnSelector: CLOSE_BTN,
+    messageFormSelector: USER_MESSAGE_FORM,
+    messageInputSelector: USER_MESSAGE_INPUT
   })
 </script>
