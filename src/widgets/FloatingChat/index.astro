@@ -1,0 +1,23 @@
+---
+import FloatingChat from "./ui/FloatingChat.astro"
+
+interface Props {
+  position: "top-left" | "top-right" | "bottom-left" | "bottom-right"
+  cssMargin?: string
+}
+
+const { position, cssMargin } = Astro.props
+---
+
+<FloatingChat position={position} cssMargin={cssMargin || null} />
+
+<script>
+  import { TOGGLER_BTN, DIALOG, CLOSE_BTN } from "./config/selectors"
+  import handleFloatingChat from "./model/handleFloatingChat"
+
+  handleFloatingChat({
+    togglerBtnSelector: TOGGLER_BTN,
+    dialogSelector: DIALOG,
+    closeBtnSelector: CLOSE_BTN
+  })
+</script>

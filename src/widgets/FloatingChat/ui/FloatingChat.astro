@@ -1,0 +1,89 @@
+---
+import "./FloatingChat.css"
+import WhatsappSVG from "../../../shared/ui/SVGs/Whatsapp/index.astro"
+import CloseSVG from "../../../shared/ui/SVGs/Close/index.astro"
+import SendSVG from "../../../shared/ui/SVGs/Send/index.astro"
+
+interface Props {
+  position: "top-left" | "top-right" | "bottom-left" | "bottom-right"
+  cssMargin?: string
+}
+
+const { position, cssMargin } = Astro.props
+---
+
+<section
+  class="floating-chat"
+  style=`position: fixed; top: ${
+    position === "top-left" || position === "top-right"
+      ? cssMargin || "1rem"
+      : "auto"
+    }; bottom: ${
+      position === "bottom-left" || position === "bottom-right"
+      ? cssMargin || "1rem"
+      : "auto"
+    }; left: ${
+      position === "top-left" || position === "bottom-left"
+      ? cssMargin || "1rem"
+      : "auto"
+    }; right: ${
+      position === "top-right" || position === "bottom-right"
+      ? cssMargin || "1rem"
+      : "auto"
+    }; z-index: 999;`
+>
+  <button class="floating-chat__toggler" type="button">
+    <WhatsappSVG />
+  </button>
+  <dialog
+    class="floating-chat__dialog"
+    style=`position: absolute; top: ${
+      position === "top-left" || position === "top-right"
+        ? "calc(100% + 0.75rem)"
+        : "auto"
+    }; bottom: ${
+      position === "bottom-left" || position === "bottom-right"
+        ? "calc(100% + 0.75rem)"
+        : "auto"
+    }; left: ${
+      position === "top-left" || position === "bottom-left"
+        ? 0
+        : "auto"
+    }; right: ${
+      position === "top-right" || position === "bottom-right"
+        ? 0
+        : "auto"
+    }; `
+  >
+    <button class="floating-chat__close-btn" type="button">
+      <CloseSVG />
+    </button>
+    <section class="floating-chat__chatbox">
+      <section class="chatbox__header">
+        <p>
+          Nuestro equipo de atención al cliente está aquí para responder a sus
+          preguntas.
+        </p>
+      </section>
+      <section class="chatbox__body">
+        <p>Hola 👋🏻. ¿Cómo podemos ayudarte?</p>
+      </section>
+    </section>
+    <form
+      action="https://api.whatsapp.com/send"
+      target="_blank"
+      class="floating-chat__user-message"
+    >
+      <input type="hidden" name="phone" value="51924674701" />
+      <textarea
+        class="user-message__input"
+        name="text"
+        placeholder="Envía un mensage a 2G Servicios Generales"
+        autocomplete="off"
+        autofocus></textarea>
+      <button type="submit">
+        <SendSVG />
+      </button>
+    </form>
+  </dialog>
+</section>
