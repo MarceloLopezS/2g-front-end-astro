@@ -95,6 +95,8 @@
   --fs-carousel-indicator: var(--fs-100);
   --fs-carousel-number: clamp(var(--fs-700), 7vw, var(--fs-900));
   --fs-carousel-description: clamp(var(--fs-200), 1.2vw, var(--fs-300));
+  --fs-floating-chat: clamp(var(--fs-75), 1vw, var(--fs-100));
+  --fs-floating-chat-header: clamp(var(--fs-50), 1vw, var(--fs-75));
 
   --size-10: 0.15rem;
   --size-15: 0.35rem;
@@ -120,6 +122,10 @@
   --size-850: 13rem;
   --size-900: 17rem;
   --size-950: 20rem;
+
+  --animation-duration-300: 300ms;
+  --animation-duration-500: 500ms;
+  --default-transition-timing-function: ease;
 }
 
 @media (min-width: 69em) {
