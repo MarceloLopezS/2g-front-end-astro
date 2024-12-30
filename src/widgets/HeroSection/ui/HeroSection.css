@@ -34,6 +34,12 @@
   background-color: hsla(0, 0%, 0%, 0.7);
 }
 
+@media (min-width: 1280px) {
+  .hero__picture img {
+    visibility: hidden;
+  }
+}
+
 .hero__front {
   display: flex;
   flex-direction: column;
