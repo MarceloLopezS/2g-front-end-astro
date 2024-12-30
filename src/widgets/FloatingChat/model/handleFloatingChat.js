@@ -43,7 +43,6 @@ const handleFloatingChat = ({
     if (dom_messageInput.value === "") return e.preventDefault()
 
     closeDialog(dom_dialog)()
-    dom_messageInput.value = ""
   }
 
   dom_toggler.addEventListener("click", () => {
